@@ -106,7 +106,7 @@ window.onload = function(){
 							</td>
 							<td width="20px"></td>
 							<td>
-								<select id="brightSelect">
+								<select id="brightSelect" style='background-color: black; color: white'>
 									<option value=1 selected>DAY</option>
 									<option value=2>DUSK</option>
 									<option value=3>NIGHT</option>
@@ -116,7 +116,7 @@ window.onload = function(){
 							<td width="5px">
 							</td>
 							<td>
-								<select id="modeSelect">
+								<select id="modeSelect" style='background-color: black; color: white'>
 									<option value=1 selected>Base</option>
 									<option value=2>Standard</option>
 									<option value=3>Full</option>
