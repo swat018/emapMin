@@ -1,0 +1,54 @@
+
+Y
+java:S1643‰"Use a StringBuilder instead.(ë§âJ$97498167-ca9c-43b2-b089-d76480500e83
+^
+java:S1643"Use a StringBuilder instead.(èÓÚéùÿÿÿÿJ$e461241f-1788-4201-ae3c-d4dcbc2badfe
+^
+java:S1643£"Use a StringBuilder instead.(÷Ô˜ıÿÿÿÿJ$bb4d4eeb-d961-4587-ba2a-a3c93b913310
+^
+java:S1643¦"Use a StringBuilder instead.(÷Ô˜ıÿÿÿÿJ$4ca773ba-6442-45d1-978a-dbdd1b433106
+Y
+java:S1643Ë"Use a StringBuilder instead.(ë§âJ$ed49979e-e97a-4bed-a93b-2a9e04beb518
+^
+java:S1643ß"Use a StringBuilder instead.(èÓÚéùÿÿÿÿJ$e7a2397d-88de-4f41-9738-167e38591c0d
+^
+java:S1643å"Use a StringBuilder instead.(÷Ô˜ıÿÿÿÿJ$4c455c4a-6723-41cd-a300-9e79656d0fc7
+^
+java:S1643è"Use a StringBuilder instead.(÷Ô˜ıÿÿÿÿJ$18ada27c-ed30-4d6e-9210-c9dd57c80616
+s
+java:S2589u"7Remove this expression which always evaluates to "true"(Üÿ“ÏJ$ad3351d0-4b2f-4b27-aeb7-71847c156c41
+–	java:S116/"VRename this field "m_sDiffChar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§Œ¹ıüÿÿÿÿJ$7857dce8-a3f4-4daa-8cb0-b72125dbc4c6
+”	java:S1161"YRename this field "m_sArrDiffChar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÃ×ˆJ$d1313ce4-84db-4dcd-a700-bdf5e9a456d0
+c
+java:S1948'"'Make "value" transient or serializable.(Ä¾¿J$88a0e2ab-571a-485b-969f-78bcdfac8bf9
+f
+java:S11971"*Move the array designators [] to the type.(òÃ×ˆJ$c0a7e779-fe3e-4691-ae16-bde4192146b5
+|	java:S1250"<This block of commented-out lines of code should be removed.(â‘²ŞşÿÿÿÿJ$c684a6c3-7d7b-4b17-bad0-6a271f14c123
+|	java:S125b"<This block of commented-out lines of code should be removed.(»×—½ùÿÿÿÿJ$3cdfb306-241f-4cea-9210-8acb91d5f49a
+w	java:S125f"<This block of commented-out lines of code should be removed.(ˆé‘ëJ$8acdedb2-edcf-4732-931b-f6af6d826ac7
+w	java:S125h"<This block of commented-out lines of code should be removed.(ÖúÊùJ$e5d36b07-c4a5-4101-87cf-4decdc02be21
+w	java:S125r"<This block of commented-out lines of code should be removed.(¶º‹ÂJ$249ca7bd-910b-4210-875b-38470f99a3d7
+w	java:S125x"<This block of commented-out lines of code should be removed.(¾€ˆĞJ$0c7146be-c540-4c82-b6b5-58bea97db926
+}	java:S125…"<This block of commented-out lines of code should be removed.(Š¼ÓèûÿÿÿÿJ$ca6b89f1-d607-40ab-af8e-0d5e2c5d7ced
+}	java:S125Œ"<This block of commented-out lines of code should be removed.( ÔáøÿÿÿÿJ$fceb7bbe-8808-470d-be7f-462f9f8a2479
+r
+java:S1172Å"0Remove this unused method parameter "escapeXml".(éäºüÿÿÿÿJ$d5ffd7d2-56a7-4051-8032-cbc21cd0e623
+
+java:S3776ó"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(²¿êŞJ$03ca21c6-cd9a-45a3-9bc6-1e0753e2207c
+X
+java:S3626‹"Remove this redundant jump.(ÉŠ©ƒJ$85964884-62f3-4f55-8855-cadf51813b69
+©
+java:S1130ó"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(²¿êŞJ$853aa580-346a-4961-a59d-cff1f622ec06
+}	java:S125•"<This block of commented-out lines of code should be removed.(£­…¶ıÿÿÿÿJ$486a16d6-1a60-4d53-a879-fe2c7236b02f
+}	java:S125œ"<This block of commented-out lines of code should be removed.(ô÷€ÌúÿÿÿÿJ$f2acaf54-a656-465c-b8a9-09d3e2e9eecd
+}	java:S125Ÿ"<This block of commented-out lines of code should be removed.(ãôĞŠüÿÿÿÿJ$1c5e92e5-d216-455d-b967-9dd1f4f38075
+”
+java:S3776´"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ÿ¬ößøÿÿÿÿJ$cc717c4e-771a-4220-9e00-8a6438586233
+X
+java:S3626Í"Remove this redundant jump.(ÉŠ©ƒJ$a2e53ba2-36b1-4922-b167-7e994b2b0db6
+®
+java:S1130´"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Ÿ¬ößøÿÿÿÿJ$061e402d-097a-4bd3-8403-72ff22f2d28b
+}	java:S125×"<This block of commented-out lines of code should be removed.(£­…¶ıÿÿÿÿJ$d2264342-1e32-448d-beb6-8e7c7506f7c2
+}	java:S125Ş"<This block of commented-out lines of code should be removed.(ô÷€ÌúÿÿÿÿJ$b8624de7-f968-4f2a-8d1e-2c76fda02a3b
+}	java:S125á"<This block of commented-out lines of code should be removed.(ãôĞŠüÿÿÿÿJ$bf06d71c-ad8f-444e-8248-ecd684171e3d
+}	java:S125ÿ"<This block of commented-out lines of code should be removed.(ÒÌâ–øÿÿÿÿJ$dc3b2e82-fc3f-4635-b7d9-afb66b198002

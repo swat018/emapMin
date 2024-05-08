@@ -1,0 +1,73 @@
+
+	java:S112\"FDefine and throw a dedicated exception instead of using a generic one.(±æã˜J$d04ea68a-e3df-476f-a857-5158e4061cf1
+†	java:S112f"FDefine and throw a dedicated exception instead of using a generic one.(•§ÿ ÿÿÿÿÿJ$892f5815-6fe1-40ad-8f96-e398dffb1f42
+’	java:S117¯"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â’ŒşÿÿÿÿJ$e3dbf413-515d-4248-90af-905c6b6b768c
+	java:S117°"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í·ìÎJ$8a90231d-b544-45f8-9a80-a18bf3426dbe
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(µ¥©®ûÿÿÿÿJ$9a41b6fd-1412-4b00-b616-a4742562e6e8
+w	java:S125^"<This block of commented-out lines of code should be removed.(ø§´­J$0a9c38f4-4a59-4182-86ed-bae0a6115703
+w	java:S125h"<This block of commented-out lines of code should be removed.(ø§´­J$11e87bf7-b0a8-4f92-ad9d-b4a3a03bcd22
+
+java:S1155s">Use isEmpty() to check whether the collection is empty or not.(áúµùşÿÿÿÿJ$ddb0f726-738c-4bb4-9d30-e93b54c39006
+e
+java:S1905{")Remove this unnecessary cast to "String".(é§ºƒJ$47712d48-f085-4657-9813-004cf21c6536
+€
+java:S1155‚">Use isEmpty() to check whether the collection is empty or not.(áúµùşÿÿÿÿJ$4e25ac50-293a-40c2-9e3d-ff09a5901bdc
+f
+java:S1905‹")Remove this unnecessary cast to "String".(é§ºƒJ$b7090897-2585-47f9-bd93-53ae5e5727ec
+€
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(áúµùşÿÿÿÿJ$9bd81c87-017e-4d6e-ac8e-c4d66bff13d2
+f
+java:S1905™")Remove this unnecessary cast to "String".(é§ºƒJ$2abfc57f-7be1-42e2-b27b-841fd44bb3bb
+€
+java:S1155£">Use isEmpty() to check whether the collection is empty or not.(áúµùşÿÿÿÿJ$d3d0f464-44c6-4648-9b57-ade63f6684be
+f
+java:S1905¬")Remove this unnecessary cast to "String".(é§ºƒJ$f2011505-7f12-4cc1-ab18-514047c7b687
+k
+java:S1905µ")Remove this unnecessary cast to "String".(ó†çúÿÿÿÿJ$589582d4-66ce-4af8-9673-380a3f9350aa
+€
+java:S1155¾">Use isEmpty() to check whether the collection is empty or not.(áúµùşÿÿÿÿJ$3f1eed24-7d91-4fde-90de-d4060455189e
+x	java:S125Ç"<This block of commented-out lines of code should be removed.(•Ç°¿J$0d217aa3-406f-4223-aa66-efb023339a2b
+f
+java:S1905È")Remove this unnecessary cast to "String".(é§ºƒJ$ac95611b-6238-48fb-b945-6175edb2964f
+x	java:S125Í"<This block of commented-out lines of code should be removed.(Äª‰ÈJ$d3b815cf-3991-43aa-aec0-48f79ecd6da9
+k
+java:S1905Ï")Remove this unnecessary cast to "String".(ÚÅ¼óşÿÿÿÿJ$d2dd7d39-ed4a-4871-8d83-043476cff193
+}	java:S125Ğ"<This block of commented-out lines of code should be removed.(â¥¦ùÿÿÿÿJ$839da0b1-443a-4882-a093-32ea64f0fd7d
+k
+java:S1905Ô")Remove this unnecessary cast to "String".(ÔãÉÀşÿÿÿÿJ$5fa6070f-71e9-4912-943b-5625db0ea968
+k
+java:S1905Ü")Remove this unnecessary cast to "String".(ü„ïôüÿÿÿÿJ$a824d508-51fe-429d-bbd7-68028bacd0a7
+k
+java:S1905ä")Remove this unnecessary cast to "String".(€½ÔüÿÿÿÿJ$a01d288b-3ef5-4ff2-9b89-b7b7af8de9e8
+€
+java:S1155ó">Use isEmpty() to check whether the collection is empty or not.(áúµùşÿÿÿÿJ$ce3b9b75-6112-48d0-a22c-f2d6e24ae289
+f
+java:S1905ü")Remove this unnecessary cast to "String".(é§ºƒJ$be05e21c-2a9d-4df0-9e84-2b1acca6fba8
+k
+java:S1905‚")Remove this unnecessary cast to "String".(¦ã¶ÔùÿÿÿÿJ$37505ffb-f6fb-4e42-9b03-90bea40bd5d0
+f
+java:S1905…")Remove this unnecessary cast to "String".(ŞõJ$374b31bd-8d51-4af3-8494-7e384d6ca10a
+€
+java:S1155Š">Use isEmpty() to check whether the collection is empty or not.(áúµùşÿÿÿÿJ$910aeb4d-9509-44a8-9976-2ba722a6eaa1
+q
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»ÚıÿÿÿÿJ$4cccd2d7-9378-4f44-a830-c89bfa86200e
+o
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿJ$337d7070-da61-4173-8e60-abdc3b0671e6
+‹
+java:S1128"JRemove this unused import 'org.springframework.core.io.ClassPathResource'.(İ¹º§ıÿÿÿÿJ$65c6b8b6-6c15-4895-9315-39a4b9f73727
+‚
+java:S1128"ARemove this unused import 'org.springframework.http.HttpHeaders'.(ãŸñ×úÿÿÿÿJ$4d608d58-b1a7-41d2-9d26-44d65538fe3a
+€
+java:S1128"?Remove this unused import 'org.springframework.http.MediaType'.(úŸİ¯şÿÿÿÿJ$4f6b85bb-d70f-4e3a-8302-e847c38cf4a0
+…
+java:S1128 "DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿJ$4408de0d-e905-406a-ba20-9fad4910247b
+„
+java:S1128#"CRemove this unused import 'org.springframework.util.FileCopyUtils'.(õÌşİüÿÿÿÿJ$96c7d27a-0729-42bb-a68d-a6bd41cf734e
+‹
+java:S1128$"ORemove this unused import 'org.springframework.web.bind.annotation.GetMapping'.(‡¡‰ØJ$51bd1f62-75d4-4aa0-aa23-45c3ead9a0d1
+’
+java:S1128&"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿJ$9339b3fd-7311-47af-b025-44ac29de66f6
+”
+java:S1128'"SRemove this unused import 'org.springframework.web.bind.annotation.RestController'.(±íş¡şÿÿÿÿJ$85ecc224-40e7-4fd7-9c2d-4870797cd7ce
+z
+java:S1128-">Remove this unused import 'com.ibm.icu.text.SimpleDateFormat'.(ÎëË‹J$a8e5a685-0202-4af4-b615-05e8c24102ba

@@ -1,0 +1,273 @@
+var googlemap;
+var choice_idx="";
+var date = new Date();
+var year = date.getFullYear();
+var month = ("0" + (1 + date.getMonth())).slice(-2);
+var day = ("0" + date.getDate()).slice(-2);
+
+let zoom;
+
+let lev; // 스케일 공유
+let dateInput;
+
+let Day_Base;
+let Day_Standard;
+let Day_Full;
+let Dusk_Base;
+let Dusk_Standard;
+let Dusk_Full;
+let Night_Base;
+let Night_Standard;
+let Night_Full;
+let Day4_Base1;
+
+let layerMode = 1; // Base, Standard, Detail
+let brightMode = 1; // 주간
+let layerWind1; // 풍향/풍속 레이어
+let layerWind1L;
+let layerWind1R;
+let layerWind2;
+let layerWind2L;
+let layerWind2R;
+let layerWind3;
+let layerWind3L;
+let layerWind3R;
+let layerWind4;
+let layerWind4L;
+let layerWind4R;
+let layerWind5;
+let layerWind5L;
+let layerWind5R;
+let layerWind6;
+let layerWind6L;
+let layerWind6R;
+let layerWind7;
+let layerWind7L;
+let layerWind7R;
+let layerWind8;
+let layerWind8L;
+let layerWind8R;
+let layerFlow1; // 유향/유속 레이어
+let layerFlow1L;
+let layerFlow1R;
+let layerFlow2;
+let layerFlow2L;
+let layerFlow2R;
+let layerFlow3;
+let layerFlow3L;
+let layerFlow3R;
+let layerFlow4;
+let layerFlow4L;
+let layerFlow4R;
+let layerFlow5;
+let layerFlow5L;
+let layerFlow5R;
+let layerFlow6;
+let layerFlow6L;
+let layerFlow6R;
+let layerFlow7;
+let layerFlow7L;
+let layerFlow7R;
+let layerFlow8;
+let layerFlow8L;
+let layerFlow8R;
+let layerWave1;
+let layerWave1L;
+let layerWave1R;
+let layerWave2;
+let layerWave2L;
+let layerWave2R;
+let layerWave3;
+let layerWave3L;
+let layerWave3R;
+let layerWave4;
+let layerWave4L;
+let layerWave4R;
+let layerWave5;
+let layerWave5L;
+let layerWave5R;
+let layerWave6;
+let layerWave6L;
+let layerWave6R;
+let layerWave7;
+let layerWave7L;
+let layerWave7R;
+let layerWave8;
+let layerWave8L;
+let layerWave8R;
+//var layerWaveheight; // 파향/파고
+var layerTempair; // 기온
+var layerTempwater; // 수온
+
+/*let weatherTime = new Date();
+weatherTime = weatherTime.getHours();
+weatherTime = (parseInt(weatherTime / 3) * 3) + "시";*/
+
+
+let weatherTime = new Date();
+/*let weatherTimeY = weatherTime.getFullYear();
+let weatherTimeM = weatherTime.getMonth() + 1;
+let weatherTimeD = weatherTime.getDate();
+weatherTimeM = weatherTimeM < 10 ? '0' + weatherTimeM : weatherTimeM;
+weatherTimeD = weatherTimeD < 10 ? '0' + weatherTimeD : weatherTimeD;
+weatherTime = weatherTime.getHours();
+weatherTime = (parseInt(weatherTime / 3) * 3) + "시";
+weatherTime = weatherTime < 10 ? '0' + weatherTime : weatherTime;
+weatherTime = weatherTimeY + '-' + weatherTimeM + '-' + weatherTimeD + ' ' + weatherTime;*/
+
+//선박 표기 기본 설정 (색상, 글자 크기)
+var shipStyle={
+	font : "15",
+	color : "blue"
+};
+var modStyleSelectInteraction; //선박 선택 이벤트
+
+//35.5468629,129.3005359 울산
+// 중앙
+function mapInit(){
+	var view = new ol.View({
+		center: ol.proj.fromLonLat([128.100,36.000 // TTEST
+		]),
+		//zoom: 12,
+		zoom: 7,
+		minZoom: 2 // 최소 줌 설정
+	});
+	
+	googlemap = new ol.layer.Tile({
+		source: new ol.source.OSM(),
+	});
+
+    //마우스 좌표
+    var mouseControlCoordinate = new ol.control.MousePosition({
+        coordinateFormat: function(coordinate) {
+        	//brent 위경도 -> 도분초 로 변경
+			//return ol.coordinate.format(coordinate, '위도: {y}, 경도: {x}', 3);
+        	//return "위도 : " + convertToDMS(coordinate[1]) + ", 경도 : " + convertToDMS(coordinate[0]);
+        	return "위도 : " + convertToDMS(coordinate[1], "latitude") + ", 경도 : " + convertToDMS(coordinate[0], "longitude");
+        },
+        projection: 'EPSG:4326',//좌표계 설정
+        className: 'scale1', //css 클래스 이름
+        target: document.getElementById('mouseLocationStat'),//좌표를 뿌릴 element
+    });
+
+	map = new ol.Map({
+		layers: [
+			googlemap
+		],
+		target: 'dvMap',
+		view: view,
+		controls: new ol.control.defaults().extend([mouseControlCoordinate]),
+	});
+    map.on('moveend', onMoveEnd);
+
+	// 해도 레이어
+	wmsInit();
+	map.removeLayer(googlemap); //배경맵 삭제
+    vectorInit(); //베이스 vector레이어\
+    GeojsonReadFeatures(); //geojson wfs 레이어로 변환. 주석처리
+    shipSelectEvent(); //선박 선택 이벤트
+}
+
+/*function updateTime(setTime) { // 시간 변경
+    let newWeatherTime = new Date(weatherTime);
+    newWeatherTime.setHours(newWeatherTime.getHours() + setTime);
+    let newWeatherTimeY = newWeatherTime.getFullYear();
+    let newWeatherTimeM = newWeatherTime.getMonth() + 1;
+    let newWeatherTimeD = newWeatherTime.getDate();
+    newWeatherTimeM = newWeatherTimeM < 10 ? '0' + newWeatherTimeM : newWeatherTimeM;
+    newWeatherTimeD = newWeatherTimeD < 10 ? '0' + newWeatherTimeD : newWeatherTimeD;
+    newWeatherTime = newWeatherTime.getHours();
+    newWeatherTime = (parseInt(newWeatherTime / 3) * 3) + "시";
+    newWeatherTime = newWeatherTime < 10 ? '0' + newWeatherTime : newWeatherTime;
+    newWeatherTime = newWeatherTimeY + '-' + newWeatherTimeM + '-' + newWeatherTimeD + ' ' + newWeatherTime;
+    weatherTime = newWeatherTime;
+}*/
+
+// 위도/경도를 도분초 단위로 변환
+function convertToDMS(data, type) {
+	/*const sign = (data < 0) ? 'W' : 'E'; // 부호 처리
+	const absData = Math.abs(data); // 절대값 변환
+	const degrees = Math.floor(absData); // 도
+	const minutesDecimal = (absData - degrees) * 60; // 분
+	const minutes = Math.floor(minutesDecimal);
+	const seconds = ((minutesDecimal - minutes) * 60).toFixed(2); // 초
+	return `${degrees}° ${minutes}' ${seconds}" ${sign}`;*/
+	if (type === 'longitude') {
+		if (data < -180)
+			data = 180 + ((data + 180) % 360);
+		else if (data > 180)
+			data = -(180 - ((data - 180) % 360));
+	}
+	const sign = (data < 0) ? (type === 'latitude' ? 'S' : 'W') : (type === 'latitude' ? 'N' : 'E'); // 부호 처리
+    const absData = Math.abs(data); // 절대값 변환
+    const degrees = Math.floor(absData); // 도
+    const minutesDecimal = (absData - degrees) * 60; // 분
+    //let minutes = Math.floor(minutesDecimal);
+    let minutes = minutesDecimal.toFixed(3);
+    //const seconds = ((minutesDecimal - minutes) * 60).toFixed(0); // 초
+    if (minutes < 10)
+    	minutes = "0" + minutes;
+    //return `${degrees}° ${minutes}.${seconds}' ${sign}`;
+    return `${degrees}° ${minutes}' ${sign}`;
+}
+
+// 레이어 변경
+function layerChange(layerMap, layerMode) {
+    if (layerMap[layerMode]) {
+        const { layerRemove, layerGroup } = layerMap[layerMode];
+        
+        layerRemove.forEach(layer => {
+            if (map.getLayers().getArray().includes(layer)) {
+                map.removeLayer(layer);
+            }
+        });
+        
+        if (!map.getLayers().getArray().includes(layerGroup)) {
+            map.addLayer(layerGroup);
+            layerGroup.setZIndex(-1);
+        }
+    }
+}
+
+//geojson wfs 레이어로 변환
+function GeojsonReadFeatures() {
+	$.ajax({
+        type:"get",
+        url:"geojson/sship.geojson",
+        dataType:"json",
+		async: false,
+        success: function(data){
+        	shipSource.clear();
+        	var features = new ol.format.GeoJSON().readFeatures(data);
+        	//ship_layer.getSource().addFeatures(new ol.format.GeoJSON().readFeatures(data));
+        	for(var i=0; i<features.length; i++) {
+        		features[i].getGeometry().transform( 'EPSG:4326',  'EPSG:3857');
+        		//features[i].pointFeature.id = "ship_"+features[i].properties.MMSI;
+        		features[i].setStyle(
+    					new ol.style.Style({		            
+    			            image: new ol.style.Icon({
+    				          	src: 'images/emap/shipIcon.png',
+    				          	anchor: [0.8, 0.8],		
+    				          	rotateWithView: true,
+								rotation: features[i].getProperties().Course!=null?features[i].getProperties().Course:0
+    		        		}),
+    			            text: new ol.style.Text({
+    			                textAlign: 'center',
+    			                font:  'bold '+shipStyle.font+'px Arial',
+    			                fill: new ol.style.Fill({color: shipStyle.color}),
+    			                stroke: new ol.style.Stroke({color:'#ffffff', width:0}),
+    			                text: ""+features[i].getProperties().imoNumber,
+    			                offsetX: 0,
+    			                offsetY: -25,
+    			                overflow:true,
+    			            })
+    			      	})
+    				);
+        	}
+        	ship_layer.getSource().addFeatures(features);
+        },
+        error:function(){
+            console.log("통신에러");
+        }
+    });
+}

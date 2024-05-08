@@ -1,0 +1,20 @@
+
+Œ	java:S117n"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Ø£àJ$e7173f5e-88ec-44cd-84bd-91ceda77f5d3
+‘	java:S117t"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÚË¦ùÿÿÿÿJ$0fa2a207-63b3-423f-8405-1137bd3db99f
+Œ	java:S117z"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌşÜÜJ$3979c88a-7b40-4c61-af2e-8016c0ad5791
+’	java:S117€"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îŒÒÌÿÿÿÿÿJ$1d0e2306-9c9e-4b39-b9c6-1bdfade2ab21
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ª•ª¤úÿÿÿÿJ$69de36d7-e16d-4316-b54a-4d0edc8c37d3
+“	java:S116#"SRename this field "air_temp" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â·ÌÃüÿÿÿÿJ$6d82c8ce-3d6b-4d0a-82c7-220574db4d12
+	java:S116$"URename this field "water_temp" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠûškJ$3eddecb1-17d8-4613-a88d-77b303924373
+	java:S116%"TRename this field "u_current" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€şËJ$72348f3b-5dc9-4041-90b6-ee3883222f0d
+	java:S116&"TRename this field "v_current" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÃÈœJ$ccf0b5af-f880-451a-b694-a5ec2c9f5e5e
+‰	java:S100k"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü¡çøJ$56ecba92-ed64-4e21-ba4d-ea05106988ce
+‰	java:S100n"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Ø£àJ$e1d8ea33-4855-4093-b078-eaa27f85b545
+	java:S100q"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ÄÀ…øÿÿÿÿJ$a9033275-5df5-4b14-9c4e-89bd8118e08b
+	java:S100t"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÚË¦ùÿÿÿÿJ$0720d0e5-b98e-4d73-a296-5788417039d7
+	java:S100w"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚŸ”ôúÿÿÿÿJ$0bb7297d-9b01-476f-b900-52d4e055ea00
+‰	java:S100z"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌşÜÜJ$ac9c2079-f5b3-4126-a013-169e7b11feb4
+‰	java:S100}"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á¹ÊåJ$ea047b06-a900-44e9-b5c1-c7f29338152b
+	java:S100€"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îŒÒÌÿÿÿÿÿJ$ea43a9df-198c-4cf7-9c53-3c97574b315f
+
+java:S1128"MRemove this unused import 'org.apache.commons.lang3.builder.ToStringBuilder'.(ãÊû¡øÿÿÿÿJ$4d4e1cd7-88b1-442d-baeb-cac54616a3dd

@@ -1,0 +1,8 @@
+
+Œ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÉí«J$958f7af5-0d23-4cc9-9bd9-1d3b54cbdd2c
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ª•ª¤úÿÿÿÿJ$146e9083-9492-4a51-9ea8-256c1a9cd742
+	java:S116"URename this field "table_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İã×¬J$05545db3-608e-47e3-ba2d-bb253e1c8bbe
+‰	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕÔŸJ$4f1ea368-f32d-4738-927f-c6dd83089f3c
+‰	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÉí«J$70f39408-1fec-454f-9259-d878d2009cc5
+
+java:S1128"MRemove this unused import 'org.apache.commons.lang3.builder.ToStringBuilder'.(ãÊû¡øÿÿÿÿJ$76d0749e-58e0-44d1-bb2b-e9e6941a16ea

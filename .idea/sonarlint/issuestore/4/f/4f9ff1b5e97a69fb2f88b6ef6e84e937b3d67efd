@@ -1,0 +1,10 @@
+
+b
+java:S1192~"LDefine a constant instead of duplicating this literal "IGNORED: {}" 3 times.(¥ê¶“
+h
+java:S3776B"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¾ ©€
+Q	java:S125P"<This block of commented-out lines of code should be removed.(ƒÓ«ö
+y
+java:S1157c"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ôá†þ
+0
+java:S3457x"Not enough arguments.(çÑ†éûÿÿÿÿ

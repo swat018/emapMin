@@ -1,0 +1,10 @@
+
+`	java:S1123"FDefine and throw a dedicated exception instead of using a generic one.(ปรัณ๘ÿÿÿÿ
+`	java:S112A"FDefine and throw a dedicated exception instead of using a generic one.(ปรัณ๘ÿÿÿÿ
+t
+java:S2293z"YReplace the type specification in this constructor call with the diamond operator ("<>").(๓ี้ฬ๛ÿÿÿÿ
+k	java:S117z"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(๓ี้ฬ๛ÿÿÿÿ
+h
+java:S3776?"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(฿๛ด
+Q	java:S125`"<This block of commented-out lines of code should be removed.(ด’ลย
+Q	java:S125s"<This block of commented-out lines of code should be removed.(๒๕ศ

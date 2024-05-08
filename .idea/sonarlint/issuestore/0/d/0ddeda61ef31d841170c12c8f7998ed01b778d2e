@@ -1,0 +1,30 @@
+
+‡	java:S112ï"FDefine and throw a dedicated exception instead of using a generic one.(·»ØıÿÿÿÿJ$7d20d050-a180-4941-99e1-891461224fa3
+†
+java:S1192]"JDefine a constant instead of duplicating this literal "resultCnt" 6 times.(ı×»¡J$612fb728-cbd6-48ee-80a0-59c2ee2c8d13
+š
+java:S1192M"YDefine a constant instead of duplicating this literal "cmm/uat/uia/EgovLoginUsr" 8 times.(ôà•·ùÿÿÿÿJ$8c2f0386-d4c3-481a-bc99-756f29beb3ab
+
+java:S1192Î"KDefine a constant instead of duplicating this literal "requestUrl" 5 times.(îÌ©ÒøÿÿÿÿJ$a8e9f1c1-a48d-4c14-8a15-d0d768559819
+ˆ
+java:S1192w"GDefine a constant instead of duplicating this literal "COM005" 4 times.(ÄÚ±ƒÿÿÿÿÿJ$5c04c3b9-6acd-440c-a504-eb7c3c21478f
+¤
+java:S1192¨"gDefine a constant instead of duplicating this literal "forward:/cop/com/selectTemplateInfs.do" 3 times.(÷±‰ÅJ$040d116b-43e5-483e-b546-f51de75285c0
+Œ
+java:S1192a"KDefine a constant instead of duplicating this literal "resultList" 8 times.(Ò¦®ìùÿÿÿÿJ$56401658-24b3-4e38-bf13-38399643f702
+e
+java:S5411¤"(Use a primitive boolean expression here.(æé¹æJ$701a914a-9c53-40cb-81cf-c0e690262954
+e
+java:S5411è"(Use a primitive boolean expression here.(æé¹æJ$d3ec8409-837c-4f30-926f-9f4971adbb9b
+e
+java:S5411ƒ"(Use a primitive boolean expression here.(æé¹æJ$e741bc6b-3797-4ffe-b349-1f0fdc83348b
+j
+java:S5411ñ"(Use a primitive boolean expression here.(Å”îÿÿÿÿÿJ$19456958-5ca1-479d-bd81-d4d8538dd3d4
+y
+java:S4973Ô"<Strings and Boxed types should be compared using "equals()".(¦çåÀJ$d20a9ef2-9a0f-4883-ae0f-57dd13b42e04
+y
+java:S4973Õ"<Strings and Boxed types should be compared using "equals()".(èúı‰J$e5fd761f-a748-499f-9258-11538e3e4e00
+y
+java:S4973Û"<Strings and Boxed types should be compared using "equals()".(èúı‰J$9a9dd894-fce0-4b25-be3c-ae5689447fcc
+~
+java:S6813;"BRemove this field injection and use constructor injection instead.(êæÄŞJ$cbc9da51-2421-4036-a4be-a07d4eaa5b9b

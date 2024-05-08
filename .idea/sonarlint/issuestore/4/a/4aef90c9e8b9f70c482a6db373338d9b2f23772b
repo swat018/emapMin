@@ -1,0 +1,17 @@
+
+–
+java:S2293Ã"YReplace the type specification in this constructor call with the diamond operator ("<>").(úýÔ‘J$46112100-2baa-4f4d-b264-bd3ce138a064
+–
+java:S2293Ö"YReplace the type specification in this constructor call with the diamond operator ("<>").(«üÎŒJ$ac2043d9-2251-4256-b46e-a6a4eae04164
+‹
+java:S11924"ODefine a constant instead of duplicating this literal "file.separator" 5 times.(ÏËõ©J$b4da2422-4b22-4eb9-be3e-b14b395d126c
+²
+java:S1319À"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(†ÐýÇúÿÿÿÿJ$edf4d06c-a3dd-475e-960a-ab0a5f78c4de
+“
+java:S2095Ï"QUse try-with-resources or close this "BufferedInputStream" in a "finally" clause.(‡˜ðóÿÿÿÿÿJ$3893f5ca-d0f0-4583-a754-7d458a45e647
+{
+java:S1118"":Add a private constructor to hide the implicit public one.(Ì¼ªùþÿÿÿÿJ$9a00990b-0521-4a4d-b9a4-9b50a3ee9189
+|	java:S125"<This block of commented-out lines of code should be removed.(Ü“êˆûÿÿÿÿJ$e45cd9bd-8b6c-4a0a-984e-f06b6e691b74
+w	java:S1251"<This block of commented-out lines of code should be removed.(õ—…ÎJ$96e29c84-8853-4a55-9212-d0b48b2d0627
+l
+java:S2093Ç"*Change this "try" to a try-with-resources.(ç£êúÿÿÿÿJ$f15013ad-0026-4ed6-92ad-d8ba0c3c843b

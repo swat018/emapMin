@@ -1,0 +1,26 @@
+
+†	java:S112&"FDefine and throw a dedicated exception instead of using a generic one.(ÔÜÇŒûÿÿÿÿJ$6be9fdb9-606c-41d1-9012-45114e535cc0
+	java:S112+"FDefine and throw a dedicated exception instead of using a generic one.(¾¬ñ¼J$1180ebc6-16c1-4304-b7b2-60c38103f31f
+†	java:S1120"FDefine and throw a dedicated exception instead of using a generic one.(¤¬óœÿÿÿÿÿJ$db7de33f-f1a8-4dfb-abeb-4592fefed87c
+†	java:S1125"FDefine and throw a dedicated exception instead of using a generic one.(ĞÙË¹şÿÿÿÿJ$821dac65-a0f0-4480-8d7e-282d527691bf
+†	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(²‰ô…ûÿÿÿÿJ$3fbc91af-2d59-48ad-80d6-13b1788cef8b
+	java:S112?"FDefine and throw a dedicated exception instead of using a generic one.(Î®©ïJ$3bd5ad05-b5df-4944-9169-d60adf1eed9c
+†	java:S112D"FDefine and throw a dedicated exception instead of using a generic one.(Ó£¢…şÿÿÿÿJ$69ed08f4-d11c-475c-afa3-f3ce6880a398
+ˆ	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(³ÌJ$0929d123-7447-43f9-bd31-28b73c8d4256
+”	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ºè€OJ$1e5b01ad-08b0-4e90-8619-e98573975832
+­
+java:S1130&"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÔÜÇŒûÿÿÿÿJ$231ee89f-49be-44de-b763-340d440dc616
+¨
+java:S1130+"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(¾¬ñ¼J$9d85e00e-3f38-4830-81dc-050a061f5628
+­
+java:S11300"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(¤¬óœÿÿÿÿÿJ$bbb88128-39c4-4158-ad8e-47829e5d2428
+­
+java:S11305"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ĞÙË¹şÿÿÿÿJ$e4b6ff8c-a69c-421a-a6f9-bf1e765aa513
+­
+java:S1130:"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(²‰ô…ûÿÿÿÿJ$4c2f3223-e3b2-4583-b0b4-97314e4476c1
+¨
+java:S1130?"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(Î®©ïJ$131ef0b2-22c6-45e4-8be1-543855eafd40
+­
+java:S1130D"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(Ó£¢…şÿÿÿÿJ$22519d4c-3b14-4776-9d6d-a0a2baca916b
+k
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½ÒşÿÿÿÿJ$73098d91-f6b1-4c2a-b285-467d947a044f

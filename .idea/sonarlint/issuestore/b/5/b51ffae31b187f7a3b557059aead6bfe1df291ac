@@ -1,0 +1,51 @@
+
+	java:S112F"FDefine and throw a dedicated exception instead of using a generic one.(ë–¨ñJ$4a980da1-37fd-4c48-8fb9-29348a5d523c
+‚	java:S112—"FDefine and throw a dedicated exception instead of using a generic one.(˜€âûJ$abd18bd4-6b0a-4028-b0ed-232debb5bf58
+	java:S112Í"FDefine and throw a dedicated exception instead of using a generic one.(Ô‚øIJ$78f62377-7514-4a26-aed8-9ff7b6955171
+	java:S112¶"FDefine and throw a dedicated exception instead of using a generic one.(‚·Ô0J$bf764ddc-6107-4ba2-968f-d0b25e0c6d05
+‡	java:S112ë"FDefine and throw a dedicated exception instead of using a generic one.(¡ìµúûÿÿÿÿJ$e9ea81a1-5e40-4a66-833d-13e7e11eacd5
+š
+java:S2293a"YReplace the type specification in this constructor call with the diamond operator ("<>").(¦®ˆøÿÿÿÿJ$877d4fc6-3443-4648-8367-291c02c47150
+‰
+java:S1192¹"LDefine a constant instead of duplicating this literal "IGNORED: {}" 7 times.(©Á’ïJ$2df02fe2-f9e1-4fc3-83a8-4e1cfbb4a0cb
+Œ	java:S117F"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë–¨ñJ$e4dd76c5-78e3-4d5b-974b-4d70300c3510
+Œ	java:S117w"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²éÜ¿J$fe885911-5ac4-4775-b68e-ed6a78953f26
+Œ	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄÎ„J$4703a9f3-ba23-455b-8ec9-9e9cf39b3e73
+‰
+java:S3973¿"GUse indentation to denote the code conditionally executed by this "if".(ƒë÷‚ûÿÿÿÿJ$05803bfb-0b3f-4c0c-b20d-c382fc682f4c
+ƒ
+java:S68302"GRename this bean to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁàÎ½J$e84f269f-0f45-4022-9492-7c1b5e737a75
+v	java:S125 "<This block of commented-out lines of code should be removed.(ó³ˆ+J$ee1db1e5-5091-4851-9825-b095e11be92b
+|	java:S125t"<This block of commented-out lines of code should be removed.(ê…ÜûÿÿÿÿJ$4fbff8b0-8be1-46f5-8b82-1fff9e6e4d2e
+}	java:S125†"<This block of commented-out lines of code should be removed.(ÂÕá•ûÿÿÿÿJ$53bded48-2f75-4d9d-8bd0-07eea2b8eb1c
+R
+java:S3457¯"Not enough arguments.(Û÷ò J$f7c57c94-2b9c-4f0d-abfb-fda77be70dfc
+Q
+java:S3457±"Not enough arguments.(–ıÂgJ$83af5189-5e7e-4dcd-9a64-5f2689200f8a
+R
+java:S3457³"Not enough arguments.(ÜÉÓßJ$64dbb428-5a5b-49fa-9857-c7e587b6832f
+l
+java:S2093›"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿJ$dd700a62-4af2-4c47-bc3c-c9eddde1cb7b
+x	java:S125Ò"<This block of commented-out lines of code should be removed.(ÀÁ¯ìJ$27af801c-337f-43c8-84ae-05f762002e31
+x	java:S125Ø"<This block of commented-out lines of code should be removed.(¼¼…¡J$a839f669-f67b-4e1d-8116-e3aaaedda6e0
+…
+java:S5361é"HReplace this call to "replaceAll()" by a call to the "replace()" method.(ÔÁ€¦J$8d2e910d-3b90-4260-812a-bb85409502f7
+v
+java:S4719é"9Replace charset name argument with StandardCharsets.UTF_8(ÔÁ€¦J$4acb5fde-895d-4ccb-a59b-712edb1c77b1
+l
+java:S2093ó"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿJ$55f9316b-4dbf-448d-b041-0ac85fb706e0
+R
+java:S3457Ë"Not enough arguments.(Û÷ò J$d4f7da38-01f9-4e42-919e-fc10b7346571
+Q
+java:S3457Í"Not enough arguments.(–ıÂgJ$d067bf9c-2d2d-4376-92d0-27410d26a577
+R
+java:S3457Ï"Not enough arguments.(ÜÉÓßJ$ada23f28-9db2-40bf-8501-1fe75d3fc17d
+l
+java:S2093»"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿJ$4e1454d6-2cdb-4b13-9f0b-34a610ea3ef2
+}	java:S125ì"<This block of commented-out lines of code should be removed.(·ìµÿÿÿÿÿJ$4665188b-e0ed-45d8-a9ce-167c8e75d5fd
+}	java:S125ò"<This block of commented-out lines of code should be removed.(éñ÷‡úÿÿÿÿJ$3d9bfe93-1db6-4fa0-a138-bf859c9bf9d4
+x	java:S125‹"<This block of commented-out lines of code should be removed.(†À£–J$330ff2b2-2287-47ba-82db-3dcd9a14a4b6
+l
+java:S2093‚"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿJ$1c6be352-99cd-43a4-8bf9-0a9f944bcba7
+x	java:S125"<This block of commented-out lines of code should be removed.(³Œ£ŠJ$c8181ea2-2c0d-4ef2-8a40-152cc28ad13d
+x	java:S125À"<This block of commented-out lines of code should be removed.(•Àò§J$86d37a40-02ce-4961-a8cc-d3b43d1f29bc

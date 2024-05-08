@@ -1,0 +1,36 @@
+
+Z	java:S112P"FDefine and throw a dedicated exception instead of using a generic one.(‡Ú
+\
+java:S1192W"FDefine a constant instead of duplicating this literal "UTF-8" 5 times.(¶²ˆ
+c
+java:S1192©"LDefine a constant instead of duplicating this literal "IGNORED: {}" 3 times.(Òõôê
+c
+java:S1192>"HDefine a constant instead of duplicating this literal "Trident" 3 times.(•ï‰¥üÿÿÿÿ
+b
+java:S1192@"GDefine a constant instead of duplicating this literal "Chrome" 3 times.(ËâùÄþÿÿÿÿ
+\
+java:S1192B"FDefine a constant instead of duplicating this literal "Opera" 4 times.(÷ËÉà
+?
+java:S5411„"(Use a primitive boolean expression here.(æé¹æ
+u
+java:S1149_"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(í…Ò‰
+^
+java:S5361W"HReplace this call to "replaceAll()" by a call to the "replace()" method.(¶²ˆ
+^
+java:S5361Y"HReplace this call to "replaceAll()" by a call to the "replace()" method.(¶²ˆ
+Y
+java:S4719[">Replace charset name argument with StandardCharsets.ISO_8859_1(â™•Ûÿÿÿÿÿ
+T
+java:S4719["9Replace charset name argument with StandardCharsets.UTF_8(â™•Ûÿÿÿÿÿ
+Y
+java:S4719]">Replace charset name argument with StandardCharsets.ISO_8859_1(â™•Ûÿÿÿÿÿ
+T
+java:S4719]"9Replace charset name argument with StandardCharsets.UTF_8(â™•Ûÿÿÿÿÿ
+V	java:S125j"<This block of commented-out lines of code should be removed.(±Ò½•ýÿÿÿÿ
+h
+java:S3776}"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ŸÛ£ê
+R	java:S125“"<This block of commented-out lines of code should be removed.(“‹Åç
+R	java:S125•"<This block of commented-out lines of code should be removed.(ÜÈß
+W	java:S125˜"<This block of commented-out lines of code should be removed.(¥¸Ñˆøÿÿÿÿ
+F
+java:S2093 "*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ

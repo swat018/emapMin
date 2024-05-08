@@ -1,0 +1,165 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "imoNumber": 900010029,
+                "Course": 0,
+                "Speed": "10 (km)",
+                "alarmStateTyoe": "2024-04-11 10:00:00"
+                            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.47939163245047,
+                    35.343702931513434
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "imoNumber": 900010030,
+                "Course": 10,
+                "Speed": "17 (kn)",
+                "alarmStateTyoe": "Normal"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.54744446122908,
+                    35.33990336466459
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "imoNumber": 900010031,
+                "Course": 20,
+                "Speed": "9 (kn)",
+                "alarmStateTyoe": "NORMAL"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.5501182366085,
+                    35.348754104269574
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "imoNumber": 900010032,
+                "Course": 30,
+                "Speed": "7 (kn)",
+                "alarmStateTyoe": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.56414248688793,
+                    35.360588710269234
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "imoNumber": 900010033,
+                "Course": 40,
+                "Speed": "2 (kn)",
+                "alarmStateTyoe": "WARNING"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.52554092890765,
+                    35.34797994154857
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "imoNumber": 900010034,
+                "Course": 50,
+                "Speed": "22 (kn)",
+                "alarmStateTyoe": "NORMAL"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.4901044474247,
+                    35.32565706107543
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "imoNumber": 900010035,
+                "Course": 60,
+                "Speed": "20 (kn)",
+                "alarmStateTyoe": "NORMAL"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.51246656628803,
+                    35.33656403212408
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "imoNumber": 900010036,
+                "Course": 70,
+                "Speed": "2 (kn)",
+                "alarmStateTyoe": "NORMAL"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.56959190193908,
+                    35.34050352106675
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "imoNumber": 900010037,
+                "Course": 80,
+                "Speed": "1 (kn)",
+                "alarmStateTyoe": "NORMAL"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.56766997510312,
+                    35.33702406419098
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "imoNumber": 900010038,
+                "Course": 90,
+                "Speed": "8 (kn)",
+                "alarmStateTyoe": "NORMAL"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.50194276060077,
+                    35.36948559020622
+                ]
+            }
+        }
+    ]
+}

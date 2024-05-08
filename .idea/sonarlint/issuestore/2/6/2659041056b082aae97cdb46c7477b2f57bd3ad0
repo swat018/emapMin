@@ -1,0 +1,28 @@
+
+‡	java:S112ì"FDefine and throw a dedicated exception instead of using a generic one.(·»ØıÿÿÿÿJ$8d77d250-5a78-4d9e-b57b-ce4c4a9d0923
+‡
+java:S1192¾"JDefine a constant instead of duplicating this literal "resultCnt" 6 times.(ı×»¡J$8448abfa-148c-43aa-90e6-30dd3b262a7f
+š
+java:S1192U"YDefine a constant instead of duplicating this literal "cmm/uat/uia/EgovLoginUsr" 9 times.(ôà•·ùÿÿÿÿJ$9d13a319-34c6-43e0-8d61-5aef2368bc36
+¡
+java:S1192]"eDefine a constant instead of duplicating this literal "forward:/cop/com/selectBBSUseInfs.do" 3 times.(¥æšJ$10ebedc8-aaa3-430e-acad-7955564e86dd
+
+java:S1192Â"KDefine a constant instead of duplicating this literal "resultList" 4 times.(Ò¦®ìùÿÿÿÿJ$d1a7dc57-79ec-4dc2-bdaf-c4add9a032dc
+	java:S117·"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó¸ŠëJ$89d2e606-85ba-4be5-a915-d9b5ba7745d8
+d
+java:S5411Y"(Use a primitive boolean expression here.(æé¹æJ$8cf5738c-fc54-407d-ba6f-719b7a58db23
+e
+java:S5411›"(Use a primitive boolean expression here.(æé¹æJ$053054dd-67fc-4e4e-bf0b-a17df64b4e51
+e
+java:S5411Ü"(Use a primitive boolean expression here.(æé¹æJ$6a859438-af80-47cd-8b7a-d398fb4e20ec
+e
+java:S5411»"(Use a primitive boolean expression here.(æé¹æJ$4389b847-6614-467b-9cd7-77d04d63a6ff
+e
+java:S5411Ù"(Use a primitive boolean expression here.(æé¹æJ$daa33d0d-6bd7-496e-ac68-e765419e3a67
+j
+java:S5411î"(Use a primitive boolean expression here.(Å”îÿÿÿÿÿJ$93edae1c-eb49-4cfc-8783-55d99ea5e7a9
+~
+java:S6813?"BRemove this field injection and use constructor injection instead.(êæÄŞJ$bdcde384-6cb0-4bf0-bad4-a23f8750d737
+|	java:S125"<This block of commented-out lines of code should be removed.(¦™¢ûÿÿÿÿJ$6d7cacab-9e71-434c-9cd4-4baa7ffff5a0
+e
+java:S1125Ú"(Remove the unnecessary boolean literals.(¨–ï¾J$74d9c202-e86b-44c5-923f-707ab63be02a

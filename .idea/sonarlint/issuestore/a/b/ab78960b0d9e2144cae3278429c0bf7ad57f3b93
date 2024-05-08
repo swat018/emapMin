@@ -1,0 +1,9 @@
+
+s
+java:S2629L"7Use the built-in formatting to construct this argument.(òÍéşJ$d03c0232-0088-4b08-9075-b804415bf096
+t
+java:S2589<"8Remove this expression which always evaluates to "false"(·õşËJ$0c3445d2-c947-4ef2-ae2f-6628796c7960
+b
+java:S1125K"'Remove the unnecessary boolean literal.(óÿŞeJ$a4205b32-554e-4676-b310-5c60bbebc8a1
+}
+java:S3457L"AFormat specifiers should be used instead of string concatenation.(òÍéşJ$d264377e-cc9f-4bcc-a29d-7e7f09dfc0a0
