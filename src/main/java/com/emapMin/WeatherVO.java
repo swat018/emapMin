@@ -5,18 +5,18 @@ import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- *  í´ë˜ìŠ¤
- * @author ê³µí†µì„œë¹„ìŠ¤ê°œë°œíŒ€ ì´ì‚¼ì„­
+ *  Å¬·¡½º
+ * @author °øÅë¼­ºñ½º°³¹ßÆÀ ÀÌ»ï¼·
  * @since 2009.06.01
  * @version 1.0
  * @see
  *
  * <pre>
- * << ê°œì •ì´ë ¥(Modification Information) >>
+ * << °³Á¤ÀÌ·Â(Modification Information) >>
  *
- *   ìˆ˜ì •ì¼      ìˆ˜ì •ì           ìˆ˜ì •ë‚´ìš©
+ *   ¼öÁ¤ÀÏ      ¼öÁ¤ÀÚ           ¼öÁ¤³»¿ë
  *  -------       --------    ---------------------------
- *   2009.3.11   ì´ì‚¼ì„­          ìµœì´ˆ ìƒì„±
+ *   2009.3.11   ÀÌ»ï¼·          ÃÖÃÊ »ı¼º
  *
  * </pre>
  */
@@ -31,6 +31,8 @@ public class WeatherVO implements Serializable {
 	private float lon;
 	private float lon1;
 	private float lon2;
+	private float lon3;
+	private float lon4;
 	private float degree;
     private String air_temp = "";
     private String water_temp = "";
@@ -97,6 +99,18 @@ public class WeatherVO implements Serializable {
 	}
 	public void setLon2(float lon2) {
 		this.lon2 = lon2;
+	}
+	public float getLon3() {
+		return lon3;
+	}
+	public void setLon3(float lon3) {
+		this.lon3 = lon3;
+	}
+	public float getLon4() {
+		return lon4;
+	}
+	public void setLon4(float lon4) {
+		this.lon4 = lon4;
 	}
 	public float getDegree() {
 		return degree;

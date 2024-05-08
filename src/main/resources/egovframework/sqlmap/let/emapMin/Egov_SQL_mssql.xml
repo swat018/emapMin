@@ -10,12 +10,13 @@
 			SELECT time, lat, lon, air_temp, water_temp, u_current, v_current, ugrd10m, vgrd10m, fsdir, fshgt, fwaveu, fwavev
 			FROM $tableName$
 			WHERE EXTRACT(hour from time) = $time$
-			AND lon >= $lon1$
-			AND lon <= $lon2$
+			AND ((lon >= $lon1$ AND lon <= $lon2$) OR (lon >= $lon3$ AND lon < $lon4$))
 			AND lat::numeric % $degree$ = 0
 			AND lon::numeric % $degree$ = 0
 		]]>
 	</select>
 				<!-- FROM $tableName$ -->
+			<!-- AND lon >= $lon1$
+			AND lon <= $lon2$ -->
 
 </sqlMap>

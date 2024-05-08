@@ -18,9 +18,11 @@ package com.emapMin.web;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -51,11 +53,11 @@ import egovframework.rte.fdl.property.EgovPropertyService;
  * @Description : EgovSample Controller Class
  * @Modification Information
  * @
- * @  ìˆ˜ì •ì¼      ìˆ˜ì •ì              ìˆ˜ì •ë‚´ìš©
+ * @  ¼öÁ¤ÀÏ      ¼öÁ¤ÀÚ              ¼öÁ¤³»¿ë
  * @ ---------   ---------   -------------------------------
- * @ 2009.03.16           ìµœì´ˆìƒì„±
+ * @ 2009.03.16           ÃÖÃÊ»ı¼º
  *
- * @author ê°œë°œí”„ë ˆì„ì›í¬ ì‹¤í–‰í™˜ê²½ ê°œë°œíŒ€
+ * @author °³¹ßÇÁ·¹ÀÓ¿÷Å© ½ÇÇàÈ¯°æ °³¹ßÆÀ
  * @since 2009. 03.16
  * @version 1.0
  * @see
@@ -77,17 +79,17 @@ public class WebController {
 	@Resource(name = "mapService")
     private mapService mapService;
 
-	LibJson json = new LibJson(); //json ì„¤ì •
+	LibJson json = new LibJson(); //json ¼³Á¤
 	
 	LocalDate now = LocalDate.now();
 	 
-    // í¬ë§· ì •ì˜
+    // Æ÷¸Ë Á¤ÀÇ
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 
-    // í¬ë§· ì ìš©
+    // Æ÷¸Ë Àû¿ë
     String formatedNow = now.format(formatter);
 	
-	//ì´ˆê¸°í™”ë©´
+	//ÃÊ±âÈ­¸é
 	@RequestMapping(value = "/index.do")
 	public String selectSampleList(ModelMap model) throws Exception {
 	
@@ -97,7 +99,7 @@ public class WebController {
 		return "emapMin/map/map";
 	}
 	
-	//ì´ˆê¸°í™”ë©´
+	//ÃÊ±âÈ­¸é
 	@RequestMapping(value = "/test.do")
 	public String selectTest(ModelMap model) throws Exception {
 	
@@ -132,7 +134,7 @@ public class WebController {
 		}
 	}
 	
-	// í˜„ì¬ ê¸°ìƒ
+	// ÇöÀç ±â»ó
 	@RequestMapping("getWeatherLast1.do")
 	public void getWeatherLast1(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		WeatherVO vo = new WeatherVO();
@@ -146,7 +148,7 @@ public class WebController {
 		}
 	}
 	
-	// í˜„ì¬ ê¸°ìƒ
+	// ÇöÀç ±â»ó
 	@RequestMapping("getWeatherLast2.do")
 	public void getWeatherLast2(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		WeatherVO vo = new WeatherVO();
@@ -156,7 +158,7 @@ public class WebController {
 
 		List<WeatherVO> slist = mapService.getWeatherLast2(vo);
 
-	    // ì¶”ê°€ì ì¸ ì •ë ¬ì„ ìˆ˜í–‰
+	    // Ãß°¡ÀûÀÎ Á¤·ÄÀ» ¼öÇà
 	    slist.sort(Comparator.comparing(WeatherVO::getLat)
 	            .thenComparing(WeatherVO::getLon));
 
@@ -165,7 +167,7 @@ public class WebController {
 		}
 	}
 	
-	// í˜„ì¬ ê¸°ìƒ
+	// ÇöÀç ±â»ó
 	@RequestMapping("getWeatherLast2Test.do")
 	public void getWeatherLast2Test(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		WeatherVO vo = new WeatherVO();
@@ -183,7 +185,7 @@ public class WebController {
 
 		List<WeatherVO> slist = mapService.getWeatherLast2Test(vo);
 	    
-	    // ì¶”ê°€ì ì¸ ì •ë ¬ì„ ìˆ˜í–‰
+	    // Ãß°¡ÀûÀÎ Á¤·ÄÀ» ¼öÇà
 	    slist.sort(Comparator.comparing(WeatherVO::getLat)
 	            .thenComparing(WeatherVO::getLon));
 
@@ -192,7 +194,7 @@ public class WebController {
 		}
 	}
 
-	// ê¸°ìƒ ì •ë³´
+	// ±â»ó Á¤º¸
 	@RequestMapping("getWeather.do")
 	public void getWeather(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		WeatherVO vo = new WeatherVO();
@@ -205,7 +207,7 @@ public class WebController {
 		//vo.setDate(formattedDate);
 
 		String time = (String)req.getParameter("time");
-		/*if (time.length() == 1) // 1ìë¦¬ìˆ˜ì¼ ê²½ìš° ì•ì— 0ì„ ì¶”ê°€
+		/*if (time.length() == 1) // 1ÀÚ¸®¼öÀÏ °æ¿ì ¾Õ¿¡ 0À» Ãß°¡
 			time = "0" + time;*/
 		vo.setTime(time);
 
@@ -217,6 +219,23 @@ public class WebController {
 			degree = Float.parseFloat(degreeStr);
 		vo.setDegree(degree);
 
+		/*String lat1Str = (String)req.getParameter("lat1");
+		float lat1;
+		if (lat1Str == null)
+			lat1 = -85;
+		else
+			lat1 = Float.parseFloat(lat1Str);
+		lat1 -= degree;
+		vo.setLat1(lat1);
+		String lat2Str = (String)req.getParameter("lat2");
+		float lat2;
+		if (lat2Str == null)
+			lat2 = 360;
+		else
+			lat2 = Float.parseFloat(lat2Str);
+		lat2 += degree;
+		vo.setLat2(lat2);*/
+		
 		String lon1Str = (String)req.getParameter("lon1");
 		float lon1;
 		if (lon1Str == null)
@@ -225,27 +244,92 @@ public class WebController {
 			lon1 = Float.parseFloat(lon1Str);
 		lon1 -= degree;
 		vo.setLon1(lon1);
+		
 		String lon2Str = (String)req.getParameter("lon2");
 		float lon2;
-		if (lon2Str == null)
+		if (lon2Str == null || Float.parseFloat(lon2Str) >= 340) // °æµµ ÃÖ´ëÄ¡ 340 ÀÌ»óÀÌ¸é 360À¸·Î ¼³Á¤ (°æµµ -20 ~ 0 °ª Ã³¸® À§ÇÔ)
 			lon2 = 360;
-		else
+		else {
 			lon2 = Float.parseFloat(lon2Str);
-		lon2 += degree;
+			lon2 += degree;
+		}
 		vo.setLon2(lon2);
 		
-		List<WeatherVO> slist = mapService.getWeather(vo);		
+		float lon3;
+		float lon4;
+		if (lon1 < 0 && lon2 < 340) {
+			lon3 = 340;
+			lon4 = 360; // Äõ¸®¿¡¼­ ÀÌ ºÎºĞÀº < Ã³¸®µÇ¾î¼­ 359.5°¡ µÊ
+		} else {
+			lon3 = -1;
+			lon4 = -1;
+		}
+		vo.setLon3(lon3);
+		vo.setLon4(lon4);
 
-	    // ì¶”ê°€ì ì¸ ì •ë ¬ì„ ìˆ˜í–‰
+		List<WeatherVO> slist = mapService.getWeather(vo);
+
+	    // Ãß°¡ÀûÀÎ Á¤·ÄÀ» ¼öÇà
 	    slist.sort(Comparator.comparing(WeatherVO::getLat)
 	            .thenComparing(WeatherVO::getLon));
 
-		if(slist.size() > 0) {			
+	    
+	    if (lon1 < -0.5 && (lon2 == 360 || lon4 == 360)) {
+			// °æµµ -20 ~ -0.5 Ãß°¡
+			List<WeatherVO> updatedList = new ArrayList<>(slist.size());
+	
+			boolean under340 = false; // 339.5°¡ ÀÖ´ÂÁö ¿©ºÎ·Î 340 Æ÷ÇÔÇÑ ¿¬¼Ó¼º Ã¼Å©
+			// 340¿¡¼­ 359.5±îÁöÀÇ ¹üÀ§°ªÀ» -20 ~ -0.5·Î º¯È¯
+		    for (WeatherVO weatherVO : slist) {
+		        float lon = weatherVO.getLon();
+		    	if (lon == 339.5)
+		    		under340 = true;
+		        if (lon >= 340 && lon < 360) {
+		            // »õ·Î¿î WeatherVO °´Ã¼¸¦ ¸¸µé¾î¼­ °ª º¹»ç
+		            WeatherVO updatedWeatherVO = new WeatherVO();
+		            updatedWeatherVO.setLon(lon - 360);
+		            // ´Ù¸¥ °ªÀº ±×´ë·Î À¯Áö
+		            updatedWeatherVO.setLat(weatherVO.getLat());
+		            //updatedWeatherVO.setAir_temp(weatherVO.getAir_temp());
+		            //updatedWeatherVO.setWater_temp(weatherVO.getWater_temp());
+		            updatedWeatherVO.setU_current(weatherVO.getU_current());
+		            updatedWeatherVO.setV_current(weatherVO.getV_current());
+		            updatedWeatherVO.setUgrd10m(weatherVO.getUgrd10m());
+		            updatedWeatherVO.setVgrd10m(weatherVO.getVgrd10m());
+		            updatedWeatherVO.setFsdir(weatherVO.getFsdir());
+		            updatedWeatherVO.setFshgt(weatherVO.getFshgt());
+		            updatedWeatherVO.setFwaveu(weatherVO.getFwaveu());
+		            updatedWeatherVO.setFwavev(weatherVO.getFwavev());
+		            // »õ·Î¿î °´Ã¼¸¦ ¸®½ºÆ®¿¡ Ãß°¡
+		            updatedList.add(updatedWeatherVO);
+		        }
+		    }
+	
+			// ±âÁ¸ ¸®½ºÆ®¿¡ Ãß°¡
+			slist.addAll(updatedList);
+		
+			// ¸®½ºÆ® ÀçÁ¤·Ä
+			slist.sort(Comparator.comparing(WeatherVO::getLat)
+			        .thenComparing(WeatherVO::getLon));
+			
+			// ¿¬¼Ó¼º ¾øÀ» °æ¿ì 340 ÀÌ»óÀº Á¦°Å
+			//if (under340) {
+				List<WeatherVO> filteredList = slist.stream()
+				        .filter(weather -> weather.getLon() < 340)
+				        .collect(Collectors.toList());
+	
+				slist.clear(); // ±âÁ¸ ¸®½ºÆ®¸¦ ºñ¿ó´Ï´Ù.
+				slist.addAll(filteredList); // ÇÊÅÍ¸µµÈ ¸®½ºÆ®¸¦ ´Ù½Ã Ãß°¡ÇÕ´Ï´Ù.
+			//}
+
+		}
+		    
+		if(slist.size() > 0) {
 			json.Json(res, slist);
 		}
 	}
 
-	// ê¸°ìƒ ì •ë³´ (íŒì—…)
+	// ±â»ó Á¤º¸ (ÆË¾÷)
 	@RequestMapping("getWeatherPopup.do")
 	public void getWeatherPopup(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		WeatherVO vo = new WeatherVO();
