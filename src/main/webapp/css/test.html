@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenLayers Drag and Drop with Longitude Restriction</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v6.13.0/css/ol.css" type="text/css">
+    <style>
+        html, body, #map {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://openlayers.org/en/v6.13.0/build/ol.js"></script>
+    <script>
+        // Define the extent of longitude restriction
+        var minLon = 0;
+        var maxLon = 140;
+
+        // Create the map
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([70, 30]), // Initial center longitude is set to 70
+                zoom: 5,
+                maxZoom: 18
+            })
+        });
+
+        // Update map view on drag event
+        map.on('pointerdrag', function(event) {
+            var view = map.getView();
+            var newCenter = view.getCenter();
+            var resolution = view.getResolution();
+            var extent = map.getView().calculateExtent(map.getSize());
+            var lon = ol.proj.transform(newCenter, 'EPSG:3857', 'EPSG:4326')[0];
+            var newLon = Math.min(Math.max(lon, minLon), maxLon - (360 * resolution));
+            newCenter[0] = ol.proj.transform([newLon, 0], 'EPSG:4326', 'EPSG:3857')[0];
+            view.setCenter(newCenter);
+        });
+    </script>
+</body>
+</html>

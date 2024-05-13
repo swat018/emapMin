@@ -17,12 +17,12 @@ body,div,ul,li,dl,dt,dd,ol,p,h1,h2,h3,h4,h5,h6,form {
 	margin:0; padding:0;
 }
 body {
-	font:normal 15px 'Nanum Gothic', '나눔 고딕', '맑은 고딕', '돋움', dotum;
+	font:normal 15px 'Nanum Gothic', '�굹�닎 怨좊뵓', '留묒� 怨좊뵓', '�룍��', dotum;
 	color:#000000;
     overflow-y: hidden;
 }
 h1 {
-	font-family:"援대┝", Gulim, AppleGothic, Sans-serif; font-size:13pt;
+	font-family:"�뤃���뵝", Gulim, AppleGothic, Sans-serif; font-size:13pt;
 }
 h2 {  
 	color: #727272;
@@ -74,6 +74,49 @@ table input[type='checkbox'] {
 	height: 20px;
 	vertical-align:-5px;
 }
+
+
+.customCheckbox[type="checkbox"] {
+	display: none;
+}
+
+.checkboxLabelCustom {
+	cursor: pointer;
+}
+
+.checkboxLabelCustom > span{
+	vertical-align: middle;
+	padding-left: 5px;
+}
+
+.checkboxLabelCustom:before{
+	content: "";
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	color: white;
+	border: 1px solid white;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+
+input[type="checkbox"]:checked + .checkboxLabelCustom:before{
+    content: "\2713";
+    font-size: 10px;
+    text-align: center;
+    line-height: 1;
+    color: white;
+    background-color: black;
+    border-color: white;
+    border-radius: 4px;
+    width: 12px;
+    height: 12px;
+}
+ 
+input[type="date"]::-webkit-calendar-picker-indicator {/* 달력 아이콘 흰색으로 */
+    filter: invert(1);
+}
+
 
 #container {
 	width: 100%;
@@ -207,7 +250,7 @@ table input[type='checkbox'] {
 }
 
 .ol-popup-closer:after {
-  content: "✖";
+  content: "�쐳";
 }
 
 .slide1 {
@@ -354,6 +397,18 @@ table.featureInfo caption{
 	/* background-color: #487295 */
 }
 
+.menuBarTable {
+	 border-collapse: collapse;
+	 border: 0;
+}
+
+.menuBarTable td {
+	 border: 0;
+	 color: white;
+	 white-space: nowrap;
+}
+
+
 .menuBar {
 	width: 100%;
 	height: 30px;
@@ -370,7 +425,7 @@ table.featureInfo caption{
 	cursor: pointer;
 }
 
-/* 프로그레스 바 스타일 */
+/* �봽濡쒓렇�젅�뒪 諛� �뒪���씪 */
 .progressBar {
 	width: 100%;
 	height: 20px;
@@ -399,7 +454,7 @@ table.featureInfo caption{
 	text-stroke: 1px #fd6001; */
 }
 
-/* 선박정보 */
+/* �꽑諛뺤젙蹂� */
 #shipdetail {
 	height: 100px;
 	left: 45%;

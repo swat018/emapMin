@@ -126,11 +126,15 @@ var modStyleSelectInteraction; //선박 선택 이벤트
 // 중앙
 function mapInit(){
 	var view = new ol.View({
-		center: ol.proj.fromLonLat([128.100,36.000 // TTEST
-		]),
-		//zoom: 12,
-		zoom: 7,
-		minZoom: 2 // 최소 줌 설정
+		center: ol.proj.fromLonLat([128.100,36.000]),
+		zoom: 4,
+		//zoom: 7,
+		maxResolution: 21600
+		//minZoom: 2, // 최소 줌 설정
+		//extent: ol.proj.transformExtent([73, -90, 136, 90], 'EPSG:4326', 'EPSG:3857'),
+        //constrainResolution: false
+		/*constrainResolution: true, // 줌 레벨을 정수로 제한합니다.
+        constrainRotation: true // 회전을 제한합니다.*/
 	});
 	
 	googlemap = new ol.layer.Tile({
@@ -151,14 +155,55 @@ function mapInit(){
     });
 
 	map = new ol.Map({
-		layers: [
-			googlemap
-		],
+		layers: [googlemap],
 		target: 'dvMap',
 		view: view,
 		controls: new ol.control.defaults().extend([mouseControlCoordinate]),
 	});
-    map.on('moveend', onMoveEnd);
+	map.on('moveend', onMoveEnd);
+
+
+
+// 오픈레이어스 좌우영역 제한
+map.on('moveend', function() {
+	// 지도의 크기를 가져옴
+	let mapSize = map.getSize();
+	
+	// 화면의 왼쪽 중앙 좌표를 계산
+	let leftCoordinate = map.getCoordinateFromPixel([0, 0]); // 좌측 좌표
+	let rightPixel = mapSize[0]; // 우측 좌표(x)
+	let rightCoordinate = map.getCoordinateFromPixel([rightPixel, 0]); // 화면 좌표를 지도 좌표로 변환
+
+	// 화면상의 중심 좌표
+	var currentCenter = view.getCenter();
+
+	// 화면상의 중심 좌표와 왼쪽 좌표의 차이 계산
+	var dx = currentCenter[0] - leftCoordinate[0];
+
+	let lonLeft = ol.proj.transform([leftCoordinate[0], 0], 'EPSG:3857', 'EPSG:4326')[0];
+	let lonRight = ol.proj.transform([rightCoordinate[0], 0], 'EPSG:3857', 'EPSG:4326')[0];
+
+	// 경도 제한
+	let newCenter;
+	if (lonLeft < -20 || lonRight > 360) {
+		if (lonLeft < 0) {
+			lonLeft = -20;
+			
+			newCenter = ol.proj.transform([lonLeft, 0], 'EPSG:4326', 'EPSG:3857');
+			newCenter = [newCenter[0] + dx, currentCenter[1]];
+		} else {
+			lonRight = 360;
+			
+			newCenter = ol.proj.transform([lonRight, 0], 'EPSG:4326', 'EPSG:3857');
+			newCenter = [newCenter[0] - dx, currentCenter[1]];
+		}
+		
+		view.setCenter(newCenter); // 변경된 경도로 지도 중심 재설정
+	}
+});
+
+
+
 
 	// 해도 레이어
 	wmsInit();
