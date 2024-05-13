@@ -1,62 +1,150 @@
 @charset "utf-8";
+
 /* Type Selector */
-*{margin:0; padding:0;margin:0; padding:0;}
-img, fieldset, button{border:none;}
-ul, ol, li {list-style:none;}
-hr, button img{display:none;}
-a{text-decoration:none;}
-a:hover, a:active, a:focus{text-decoration:none;}
-textarea{overflow:auto;}
-legend {position:absolute; top:0; left:0; width:0; height:0; overflow:hidden; visibility:hidden; font-size:0; line-height:0;} /* For Screen Reader */
-caption{display:none;}
-img{border:0; vertical-align: middle;}
-html, body{margin:0; padding:0; height: 100%;width: 100%;}
-html {overflow:hidden;}
-body {background:#fff;}
-body,div,ul,li,dl,dt,dd,ol,p,h1,h2,h3,h4,h5,h6,form {
-	margin:0; padding:0;
+* {
+	margin: 0;
+	padding: 0;
+	margin: 0;
+	padding: 0;
 }
+
+img,
+fieldset,
+button {
+	border: none;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+hr,
+button img {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+	text-decoration: none;
+}
+
+textarea {
+	overflow: auto;
+}
+
+legend {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+}
+
+/* For Screen Reader */
+caption {
+	display: none;
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+html,
 body {
-	font:normal 15px 'Nanum Gothic', '�굹�닎 怨좊뵓', '留묒� 怨좊뵓', '�룍��', dotum;
-	color:#000000;
-    overflow-y: hidden;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
 }
+
+html {
+	overflow: hidden;
+}
+
+body {
+	background: #fff;
+}
+
+body,
+div,
+ul,
+li,
+dl,
+dt,
+dd,
+ol,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: normal 15px 'Nanum Gothic', '나눔 고딕', '맑은 고딕', '돋움', dotum;
+	color: #000000;
+	overflow-y: hidden;
+}
+
 h1 {
-	font-family:"�뤃���뵝", Gulim, AppleGothic, Sans-serif; font-size:13pt;
+	font-family: "굴림", Gulim, AppleGothic, Sans-serif;
+	font-size: 13pt;
 }
-h2 {  
+
+h2 {
 	color: #727272;
-    font-size: 1.4em;
-    line-height: 1.125em;
-    margin: 1.125em 0 0.208em;
-}  
+	font-size: 1.4em;
+	line-height: 1.125em;
+	margin: 1.125em 0 0.208em;
+}
+
 h3 {
 	font-size: 1.333em;
-    line-height: 1.125em;
-    margin: 1.688em 0 0.3125em;
+	line-height: 1.125em;
+	margin: 1.688em 0 0.3125em;
 }
+
 input.text {
-    border-color: #ACACAC #D9D9D9 #D9D9D9 #ACACAC;
-    border-right: 1px solid #D9D9D9;
-    border-style: solid;
-    border-width: 1px;
-    color: #848484;
-    font-size: 11px;
-    height: 15px;   
-    padding: 3px 0 0 3px;}
+	border-color: #ACACAC #D9D9D9 #D9D9D9 #ACACAC;
+	border-right: 1px solid #D9D9D9;
+	border-style: solid;
+	border-width: 1px;
+	color: #848484;
+	font-size: 11px;
+	height: 15px;
+	padding: 3px 0 0 3px;
+}
 
 input {
-    color: #67625C;
-    font-family: gulim;
-    font-size: 1em;
-    vertical-align: middle;
+	color: #67625C;
+	font-family: gulim;
+	font-size: 1em;
+	vertical-align: middle;
 }
+
 select {
-    color: #444444;
-    font-size: 100%;
-    height: 21px;
-    vertical-align: middle;
-} 
+	color: #444444;
+	font-size: 100%;
+	height: 21px;
+	vertical-align: middle;
+}
 
 #weatherTime {
 	color: white;
@@ -72,7 +160,7 @@ table .t_left {
 
 table input[type='checkbox'] {
 	height: 20px;
-	vertical-align:-5px;
+	vertical-align: -5px;
 }
 
 
@@ -84,12 +172,12 @@ table input[type='checkbox'] {
 	cursor: pointer;
 }
 
-.checkboxLabelCustom > span{
+.checkboxLabelCustom>span {
 	vertical-align: middle;
 	padding-left: 5px;
 }
 
-.checkboxLabelCustom:before{
+.checkboxLabelCustom:before {
 	content: "";
 	display: inline-block;
 	width: 12px;
@@ -100,21 +188,22 @@ table input[type='checkbox'] {
 	vertical-align: middle;
 }
 
-input[type="checkbox"]:checked + .checkboxLabelCustom:before{
-    content: "\2713";
-    font-size: 10px;
-    text-align: center;
-    line-height: 1;
-    color: white;
-    background-color: black;
-    border-color: white;
-    border-radius: 4px;
-    width: 12px;
-    height: 12px;
+input[type="checkbox"]:checked+.checkboxLabelCustom:before {
+	content: "\2713";
+	font-size: 10px;
+	text-align: center;
+	line-height: 1;
+	color: white;
+	background-color: black;
+	border-color: white;
+	border-radius: 4px;
+	width: 12px;
+	height: 12px;
 }
- 
-input[type="date"]::-webkit-calendar-picker-indicator {/* 달력 아이콘 흰색으로 */
-    filter: invert(1);
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	/* 달력 아이콘 흰색으로 */
+	filter: invert(1);
 }
 
 
@@ -139,24 +228,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {/* 달력 아이콘 흰�
 }
 
 .div_left #div_left_route table {
-	width: 275px; 
+	width: 275px;
 	border: 1px solid #d4d4d4;
 	cursor: default;
 }
 
-.div_left #div_left_route #route_resultlist table{
-    width: 100%;
-    border: 0px;
-    border-bottom: 1px solid #d4d4d4;
-    cursor: pointer;
+.div_left #div_left_route #route_resultlist table {
+	width: 100%;
+	border: 0px;
+	border-bottom: 1px solid #d4d4d4;
+	cursor: pointer;
 }
 
 .div_left #div_left_route #route_resultlist tr:hover {
-    background: #d4d4d4;
+	background: #d4d4d4;
 }
 
 .div_left #div_left_route #route_resultlist {
-	height: 370px; 
+	height: 370px;
 	margin: 0 10px;
 	border: 1px solid #d4d4d4;
 }
@@ -168,30 +257,30 @@ input[type="date"]::-webkit-calendar-picker-indicator {/* 달력 아이콘 흰�
 }
 
 .div_left #div_left_ship table {
-	width: 275px; 
+	width: 275px;
 	border: 1px solid #d4d4d4;
 	cursor: default;
 }
 
 .div_left2 #div_left_weather table {
-	width: 275px; 
+	width: 275px;
 	border: 1px solid #d4d4d4;
 	cursor: default;
 }
 
-.div_left #div_left_ship #ship_resultlist table{
-    width: 100%;
-    border: 0px;
-    border-bottom: 1px solid #d4d4d4;
-    cursor: pointer;
+.div_left #div_left_ship #ship_resultlist table {
+	width: 100%;
+	border: 0px;
+	border-bottom: 1px solid #d4d4d4;
+	cursor: pointer;
 }
 
 .div_left #div_left_ship #ship_resultlist tr:hover {
-    background: #d4d4d4;
+	background: #d4d4d4;
 }
 
 .div_left #div_left_ship #ship_resultlist {
-	height: 370px; 
+	height: 370px;
 	margin: 0 10px;
 	border: 1px solid #d4d4d4;
 }
@@ -202,14 +291,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {/* 달력 아이콘 흰�
 }
 
 .map_tool {
-	width: 100%;	
+	width: 100%;
 }
+
 .map_tool li {
 	text-align: center;
 }
+
 .map_tool li img {
 	margin: 1px auto;
-	cursor:pointer;
+	cursor: pointer;
 }
 
 .option {
@@ -220,37 +311,39 @@ input[type="date"]::-webkit-calendar-picker-indicator {/* 달력 아이콘 흰�
 	bottom: 0;
 	margin-bottom: 10px;
 }
+
 .option li {
 	text-align: center;
 }
+
 .option li img {
 	margin: 1px auto;
-	cursor:pointer;
+	cursor: pointer;
 }
 
 .ol-popup {
-  position: absolute;
-  width: 200px;
-  height: 175px;
-  background-color: white;
-  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  z-index: 10;
-  display: none;
+	position: absolute;
+	width: 200px;
+	height: 175px;
+	background-color: white;
+	-webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+	filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+	padding: 15px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	z-index: 10;
+	display: none;
 }
 
 .ol-popup-closer {
-  text-decoration: none;
-  position: absolute;
-  top: 2px;
-  right: 8px;
+	text-decoration: none;
+	position: absolute;
+	top: 2px;
+	right: 8px;
 }
 
 .ol-popup-closer:after {
-  content: "�쐳";
+  content: "✖";
 }
 
 .slide1 {
@@ -303,7 +396,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {/* 달력 아이콘 흰�
 }
 
 #div_route_detail #route_detail_list tr:hover {
-    background: #d4d4d4;
+	background: #d4d4d4;
 }
 
 #div_ship_detail {
@@ -318,11 +411,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {/* 달력 아이콘 흰�
 }
 
 #div_ship_detail table {
-	margin: 10px 10px 5px;	
+	margin: 10px 10px 5px;
 	border: 1px solid #d4d4d4;
 }
 
-#div_ship_detail table th{
+#div_ship_detail table th {
 	text-align: center;
 }
 
@@ -337,34 +430,36 @@ input[type="date"]::-webkit-calendar-picker-indicator {/* 달력 아이콘 흰�
 	display: none;
 }
 
-table.featureInfo, table.featureInfo td, table.featureInfo th {
-	border:1px solid #ddd;
-	border-collapse:collapse;
-	margin:0;
-	padding:0;
+table.featureInfo,
+table.featureInfo td,
+table.featureInfo th {
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
 	font-size: 90%;
-	padding:.2em .1em;
+	padding: .2em .1em;
 }
 
 table.featureInfo th {
-	padding:.2em .2em;
-	font-weight:bold;
-	background:#eee;
+	padding: .2em .2em;
+	font-weight: bold;
+	background: #eee;
 }
 
-table.featureInfo td{
-	background:#fff;
+table.featureInfo td {
+	background: #fff;
 }
 
-table.featureInfo tr.odd td{
-	background:#eee;
+table.featureInfo tr.odd td {
+	background: #eee;
 }
 
-table.featureInfo caption{
-	text-align:left;
-	font-size:100%;
-	font-weight:bold;
-	padding:.2em .2em;
+table.featureInfo caption {
+	text-align: left;
+	font-size: 100%;
+	font-weight: bold;
+	padding: .2em .2em;
 }
 
 .scale {
@@ -376,7 +471,7 @@ table.featureInfo caption{
 	background-color: rgba(213, 213, 213, 0.5);
 	text-align: center;
 	font-size: 15px;
-	font-weight:bold;
+	font-weight: bold;
 }
 
 .leftMenu {
@@ -398,14 +493,14 @@ table.featureInfo caption{
 }
 
 .menuBarTable {
-	 border-collapse: collapse;
-	 border: 0;
+	border-collapse: collapse;
+	border: 0;
 }
 
 .menuBarTable td {
-	 border: 0;
-	 color: white;
-	 white-space: nowrap;
+	border: 0;
+	color: white;
+	white-space: nowrap;
 }
 
 
@@ -425,36 +520,7 @@ table.featureInfo caption{
 	cursor: pointer;
 }
 
-/* �봽濡쒓렇�젅�뒪 諛� �뒪���씪 */
-.progressBar {
-	width: 100%;
-	height: 20px;
-	border: 1px solid white;
-	margin-bottom: 10px;
-	position: absolute;
-	left: 68px;
-	bottom: 30px;
-	z-index: 200;
-}
-
-.progress {
-	height: 100%;
-	background-color: #fd6001;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.progressLabel {
-	font-weight: bold;
-	margin-bottom: 5px;
-	color: white;
-	text-shadow: -1px 0 #fd6001, 0 1px #fd6001, 1px 0 #fd6001, 0 -1px #fd6001;
-	/* -webkit-text-stroke: 1px #fd6001;
-	text-stroke: 1px #fd6001; */
-}
-
-/* �꽑諛뺤젙蹂� */
+/* 선박정보 */
 #shipdetail {
 	height: 100px;
 	left: 45%;
@@ -466,9 +532,11 @@ table.featureInfo caption{
 }
 
 #shipdetail table {
-    border: 1px solid #444444;
-    border-collapse: collapse;
-  }
-#shipdetail  th, td {
-    border: 1px solid #444444;
-  }
+	border: 1px solid #444444;
+	border-collapse: collapse;
+}
+
+#shipdetail th,
+td {
+	border: 1px solid #444444;
+}
