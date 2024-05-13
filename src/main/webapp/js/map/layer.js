@@ -72,7 +72,6 @@ function wmsInit(){
             	'VERSION': '1.1.0' , 
                 'LAYERS': 'emap:ocean',
                 'CRS' : 'EPSG:3857',
-                //'CRS' : 'EPSG:404000',
             },            
         })
    });

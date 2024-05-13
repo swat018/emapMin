@@ -8,8 +8,8 @@ function onMoveEnd(evt) {
 	  
 	  var scale = INCHES_PER_UNIT * DOTS_PER_INCH * resol;
 	  scale = Math.round(scale);
-	  lev = lev - 2; // 레벨 2 제한 때문에 -2 처리
-	  $("#mapZoomLevelStat").html("축척=>1:"+scale+"[LEVEL:"+lev+"]");	  
+	  //lev = lev - 2; // 레벨 2 제한 때문에 -2 처리
+	  $("#mapZoomLevelStat").html("축척=>1:"+scale+"[LEVEL:"+lev+"]");
 }
 
 function getLayer(id) {

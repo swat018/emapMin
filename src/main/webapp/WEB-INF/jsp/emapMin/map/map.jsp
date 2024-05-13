@@ -73,15 +73,25 @@ window.onload = function(){
 		<div id="container">
 			<div class="con_center">
 				<div class="menuBar">
-					<table>
+					<table class="menuBarTable">
 						<tr>
-							<td width="20px"></td>
-							<td style="color: white;">
-								&nbsp;<input type="checkbox" id="checkWind"> 풍향/풍속&nbsp;
-								&nbsp;<input type="checkbox" id="checkFlow"> 유향/유속&nbsp;
-								&nbsp;<input type="checkbox" id="checkWaveheight"> 파향/파주기&nbsp;
-								&nbsp;<input type="checkbox" id="checkTempair"> 기온&nbsp;
-								&nbsp;<input type="checkbox" id="checkTempwater"> 수온&nbsp;
+							<td width="22px"></td>
+							<td>
+								<!-- <input type="checkbox" id="checkWind" class="customCheckbox">
+										<label for="checkWind" class="checkboxLabelCustom">&nbsp;풍향/풍속</label>
+								&nbsp;<input type="checkbox" id="checkFlow" class="customCheckbox">
+										<label for="checkFlow" class="checkboxLabelCustom">&nbsp;유향/유속</label>
+								&nbsp;<input type="checkbox" id="checkWaveheight" class="customCheckbox">
+										<label for="checkWaveheight" class="checkboxLabelCustom">&nbsp;파향/파주기</label>
+								&nbsp;<input type="checkbox" id="checkTempair" class="customCheckbox">
+										<label for="checkTempair" class="checkboxLabelCustom">&nbsp;기온</label>
+								&nbsp;<input type="checkbox" id="checkTempwater" class="customCheckbox">
+										<label for="checkTempwater" class="checkboxLabelCustom">&nbsp;수온</label> -->
+								<input type="radio" id="checkWind" name="weatherOption" class="customRadio"> 풍향/풍속
+							    &nbsp;<input type="radio" id="checkFlow" name="weatherOption" class="customRadio"> 유향/유속
+							    &nbsp;<input type="radio" id="checkWave" name="weatherOption" class="customRadio"> 파향/파주기
+							    &nbsp;<input type="radio" id="checkTempair" name="weatherOption" class="customRadio"> 기온
+							    &nbsp;<input type="radio" id="checkTempwater" name="weatherOption" class="customRadio"> 수온
 							</td>
 							<td width="10px"></td>
 							<td>
@@ -90,7 +100,7 @@ window.onload = function(){
 							<td width="2px"></td>
 							<td>
 								<div>
-									<input type="date" id="selectDate" style="appearance: none; border: none;">
+									<input type="date" id="selectDate" style="appearance: none; border: none; background-color: black; color:white">
 								</div>
 							</td>
 							<td width="10px"></td>
@@ -99,7 +109,7 @@ window.onload = function(){
 									<tr height="2px"><td></td></tr>
 									<tr>
 										<td>
-											<button id="timeMinus12" style="width: 35px; height: 25px;"><<</button> <button id="timeMinus3" style="width: 35px; height: 25px;"><</button> <button id="timeNow" style="width: 35px; height: 25px;">현재</button> <button id="timePlus3" style="width: 35px; height: 25px;">></button> <button id="timePlus12" style="width: 35px; height: 25px;">>></button>
+											<button id="timeMinus12" style="width: 20px; height: 15px; background-color: black; color: white; border-width: 1px; border-style: solid; border-color: white"><<</button> <button id="timeMinus3" style="width: 20px; height: 15px; background-color: black; color: white; border-width: 1px; border-style: solid; border-color: white"><</button> <button id="timeNow" style="width: 35px; height: 20px; background-color: black; color: white; border-width: 1px; border-style: solid; border-color: white">현재</button> <button id="timePlus3" style="width: 20px; height: 15px; background-color: black; color: white; border-width: 1px; border-style: solid; border-color: white">></button> <button id="timePlus12" style="width: 20px; height: 15px; background-color: black; color: white; border-width: 1px; border-style: solid; border-color: white">>></button>
 										</td>
 									</tr>
 								</table>

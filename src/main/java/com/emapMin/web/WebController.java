@@ -274,6 +274,9 @@ public class WebController {
 	            .thenComparing(WeatherVO::getLon));
 
 	    
+	    //String uvTruePre = (String)req.getParameter("uv");
+	    //int uvTrue = Integer.parseInt(uvTruePre);
+	    //if (uvTrue == 1 && lon1 < -0.5 && (lon2 == 360 || lon4 == 360)) {
 	    if (lon1 < -0.5 && (lon2 == 360 || lon4 == 360)) {
 			// 경도 -20 ~ -0.5 추가
 			List<WeatherVO> updatedList = new ArrayList<>(slist.size());
@@ -290,8 +293,8 @@ public class WebController {
 		            updatedWeatherVO.setLon(lon - 360);
 		            // 다른 값은 그대로 유지
 		            updatedWeatherVO.setLat(weatherVO.getLat());
-		            //updatedWeatherVO.setAir_temp(weatherVO.getAir_temp());
-		            //updatedWeatherVO.setWater_temp(weatherVO.getWater_temp());
+		            updatedWeatherVO.setAir_temp(weatherVO.getAir_temp());
+		            updatedWeatherVO.setWater_temp(weatherVO.getWater_temp());
 		            updatedWeatherVO.setU_current(weatherVO.getU_current());
 		            updatedWeatherVO.setV_current(weatherVO.getV_current());
 		            updatedWeatherVO.setUgrd10m(weatherVO.getUgrd10m());
