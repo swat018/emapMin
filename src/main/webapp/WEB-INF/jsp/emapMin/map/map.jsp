@@ -30,6 +30,9 @@
 <!-- openlayers -->
 <script type="text/javascript" src="<c:url value="/js/libs/openlayers/ol-ext/ol-ext.min.js"/>"></script>
 
+<!-- 기온/수온 보간 -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script> -->
+
 <!-- proj -->
 <script type="text/javascript" src="<c:url value="/js/libs/proj4/proj4.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/libs/proj4/epsg.js"/>"></script>
@@ -92,6 +95,41 @@ window.onload = function(){
 							    &nbsp;<input type="radio" id="checkWave" name="weatherOption" class="customRadio"> 파향/파주기
 							    &nbsp;<input type="radio" id="checkTempair" name="weatherOption" class="customRadio"> 기온
 							    &nbsp;<input type="radio" id="checkTempwater" name="weatherOption" class="customRadio"> 수온
+							    <script>
+							    	let previousChecked = null;
+							    	
+								    // 선택된 라디오 버튼 클릭시 해제
+								    document.querySelectorAll('.customRadio').forEach(function(radio) {
+								        radio.addEventListener('click', function() {
+								            if (this === previousChecked) {
+								                this.checked = false;
+								                previousChecked = null;
+
+								            	if (addLayerWind) {
+								            		addLayerWind = false;
+								            		map.removeLayer(layerWind1);
+								            	} else if (addLayerFlow) {
+								            		addLayerFlow = false;
+								            		map.removeLayer(layerFlow1);
+								            	} else if (addLayerWave) {
+								            		addLayerWave = false;
+								            		map.removeLayer(layerWave1);
+								            	} else if (addLayerTempair || addLayerTempwater) {
+								            		if (addLayerTempair) {
+								            			addLayerTempair = false;
+								            			map.removeLayer(layerTempair);
+								            		} else if (addLayerTempwater) {
+								            			addLayerTempwater = false;
+								            			map.removeLayer(layerTempwater);
+								            		}
+								            		const existingLayerTempLegend = document.querySelector('#tempLegend');
+								            		existingLayerTempLegend.remove();
+								            	}
+								            } else
+								            	previousChecked = this;
+								        });
+								    });
+								</script>
 							</td>
 							<td width="10px"></td>
 							<td>
