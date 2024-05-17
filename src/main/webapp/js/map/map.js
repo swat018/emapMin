@@ -24,80 +24,17 @@ let Day4_Base1;
 let layerMode = 1; // Base, Standard, Detail
 let brightMode = 1; // 주간
 let layerWind1; // 풍향/풍속 레이어
-let layerWind1L;
-let layerWind1R;
-let layerWind2;
-let layerWind2L;
-let layerWind2R;
-let layerWind3;
-let layerWind3L;
-let layerWind3R;
-let layerWind4;
-let layerWind4L;
-let layerWind4R;
-let layerWind5;
-let layerWind5L;
-let layerWind5R;
-let layerWind6;
-let layerWind6L;
-let layerWind6R;
-let layerWind7;
-let layerWind7L;
-let layerWind7R;
-let layerWind8;
-let layerWind8L;
-let layerWind8R;
 let layerFlow1; // 유향/유속 레이어
-let layerFlow1L;
-let layerFlow1R;
-let layerFlow2;
-let layerFlow2L;
-let layerFlow2R;
-let layerFlow3;
-let layerFlow3L;
-let layerFlow3R;
-let layerFlow4;
-let layerFlow4L;
-let layerFlow4R;
-let layerFlow5;
-let layerFlow5L;
-let layerFlow5R;
-let layerFlow6;
-let layerFlow6L;
-let layerFlow6R;
-let layerFlow7;
-let layerFlow7L;
-let layerFlow7R;
-let layerFlow8;
-let layerFlow8L;
-let layerFlow8R;
-let layerWave1;
-let layerWave1L;
-let layerWave1R;
-let layerWave2;
-let layerWave2L;
-let layerWave2R;
-let layerWave3;
-let layerWave3L;
-let layerWave3R;
-let layerWave4;
-let layerWave4L;
-let layerWave4R;
-let layerWave5;
-let layerWave5L;
-let layerWave5R;
-let layerWave6;
-let layerWave6L;
-let layerWave6R;
-let layerWave7;
-let layerWave7L;
-let layerWave7R;
-let layerWave8;
-let layerWave8L;
-let layerWave8R;
-//var layerWaveheight; // 파향/파고
-var layerTempair; // 기온
-var layerTempwater; // 수온
+let layerWave1; // 파향/파주기 레이어
+
+let addLayerWind;
+let addLayerFlow;
+let addLayerWave;
+let addLayerTempair;
+let addLayerTempwater;
+
+let layerTempair; // 기온
+let layerTempwater; // 수온
 
 /*let weatherTime = new Date();
 weatherTime = weatherTime.getHours();
@@ -185,14 +122,14 @@ map.on('moveend', function() {
 
 	// 경도 제한
 	let newCenter;
-	if (lonLeft < -20 || lonRight > 360) {
-		if (lonLeft < 0) {
-			lonLeft = -20;
+	if (lonLeft < -180 || lonRight > 540) {
+		if (lonLeft < -180) {
+			lonLeft = 360 + (lonLeft % 360);
 			
 			newCenter = ol.proj.transform([lonLeft, 0], 'EPSG:4326', 'EPSG:3857');
 			newCenter = [newCenter[0] + dx, currentCenter[1]];
 		} else {
-			lonRight = 360;
+			lonRight = lonRight % 360;
 			
 			newCenter = ol.proj.transform([lonRight, 0], 'EPSG:4326', 'EPSG:3857');
 			newCenter = [newCenter[0] - dx, currentCenter[1]];
