@@ -38,6 +38,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springmodules.validation.commons.DefaultBeanValidator;
 
@@ -193,9 +194,11 @@ public class WebController {
 			json.Json(res, slist);
 		}
 	}
-
+    
+    
 	// 기상 정보
-	@RequestMapping("getWeather.do")
+	//@RequestMapping("getWeather.do")
+    @RequestMapping("/api/weather/all")
 	public void getWeather(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		WeatherVO vo = new WeatherVO();
 		//vo.setDate((String)req.getParameter("date"));
@@ -360,7 +363,7 @@ public class WebController {
 			        .thenComparing(WeatherVO::getLon));
 			
 			// 연속성 없을 경우 340 이상은 제거
-			if (!lonContinue) {
+			//if (!lonContinue) {
 				float lon1Final = lon1Convert;
 				List<WeatherVO> filteredList = slist.stream()
 				        .filter(weather -> weather.getLon() < lon1Final)
@@ -368,7 +371,7 @@ public class WebController {
 	
 				slist.clear(); // 기존 리스트를 비웁니다.
 				slist.addAll(filteredList); // 필터링된 리스트를 다시 추가합니다.
-			}
+			//}
 		}
 
 	    else if (lon2Real > 360 + degree) {
