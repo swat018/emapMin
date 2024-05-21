@@ -104,6 +104,9 @@ window.onload = function(){
 								            if (this === previousChecked) {
 								                this.checked = false;
 								                previousChecked = null;
+								                
+								            	if (brightMode != 4)
+								            		map.removeLayer(worldcountries);
 
 								            	if (addLayerWind) {
 								            		addLayerWind = false;
