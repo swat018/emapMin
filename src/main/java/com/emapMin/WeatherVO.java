@@ -25,6 +25,7 @@ public class WeatherVO implements Serializable {
 	private String date = "";
 	private String tableName = "";
 	private String time = "";
+	private String data = "";
 	private float lat;
 	private float lat1;
 	private float lat2;
@@ -33,6 +34,8 @@ public class WeatherVO implements Serializable {
 	private float lon2;
 	private float lon3;
 	private float lon4;
+	private float lon5;
+	private float lon6;
 	private float degree;
     private String air_temp = "";
     private String water_temp = "";
@@ -63,6 +66,12 @@ public class WeatherVO implements Serializable {
 	}
 	public void setTime(String time) {
 		this.time = time;
+	}
+	public String getData() {
+		return data;
+	}
+	public void setData(String data) {
+		this.data = data;
 	}
 	public float getLat() {
 		return lat;
@@ -111,6 +120,18 @@ public class WeatherVO implements Serializable {
 	}
 	public void setLon4(float lon4) {
 		this.lon4 = lon4;
+	}
+	public float getLon5() {
+		return lon5;
+	}
+	public void setLon5(float lon5) {
+		this.lon5 = lon5;
+	}
+	public float getLon6() {
+		return lon6;
+	}
+	public void setLon6(float lon6) {
+		this.lon6 = lon6;
 	}
 	public float getDegree() {
 		return degree;

@@ -10,6 +10,9 @@ let zoom;
 let lev; // 스케일 공유
 let dateInput;
 
+let ocean;
+let worldcountries;
+
 let Day_Base;
 let Day_Standard;
 let Day_Full;

@@ -60,7 +60,7 @@ function wmsInit(){
         })
     });
 
-   let ocean = new ol.layer.Tile({
+   ocean = new ol.layer.Tile({
 		id : 'ocean',
     	title: 'ocean',
     	opacity: 1,
@@ -75,7 +75,7 @@ function wmsInit(){
             },            
         })
    });
-   let worldcountries = new ol.layer.Tile({
+   worldcountries = new ol.layer.Tile({
 		id : 'worldcountries',
     	title: 'worldcountries',
     	opacity: 1,
@@ -230,7 +230,7 @@ function wmsInit(){
 			//make_sld("ocean", "Polygon1_1", "0E182F", null);
 			make_sld("ocean", "Polygon1_1", "17284F", null);
 			map.addLayer(worldcountries);
-			worldcountries.setZIndex(-1);
+			worldcountries.setZIndex(1);
 			make_sld("worldcountries", "Polygon1_2", "1E1E1E", null);
 		}
 	});
