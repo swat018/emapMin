@@ -6,6 +6,8 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import com.emapMin.WeatherVO;
+import com.emapMin.RouteDetailVO;
+import com.emapMin.RouteVO;
 
 import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
 
@@ -67,5 +69,40 @@ public class mapDAO extends EgovComAbstractDAO {
     @SuppressWarnings("unchecked")
    	public List<WeatherVO> getWeatherPopup(WeatherVO vo) throws Exception {
     	return (List<WeatherVO>) list("map.getWeatherPopup", vo);
+    }
+    
+    @SuppressWarnings("unchecked")
+   	public List<RouteVO> getRouteList(RouteVO vo) throws Exception {
+    	return (List<RouteVO>) list("map.getRouteList",vo);
+    }
+    
+    @SuppressWarnings("unchecked")
+   	public void RouteInsert(RouteVO vo) throws Exception {
+    	insert("map.RouteInsert", vo);
+    }
+    
+    @SuppressWarnings("unchecked")
+   	public int RouteUpdate(RouteVO vo) throws Exception {
+    	return (int) update("map.RouteUpdate", vo);
+    }
+    
+    @SuppressWarnings("unchecked")
+   	public int RouteDelete(RouteDetailVO vo) throws Exception {
+    	return (int) update("map.RouteDelete", vo);
+    }
+    
+    @SuppressWarnings("unchecked")
+   	public List<RouteDetailVO> getRouteDetailList(RouteVO vo) throws Exception {
+    	return (List<RouteDetailVO>) list("map.getRouteDetailList", vo);
+    }
+    
+    @SuppressWarnings("unchecked")
+   	public void RouteDetailInsert(RouteDetailVO vo) throws Exception {
+    	insert("map.RouteDetailInsert", vo);
+    }
+    
+    @SuppressWarnings("unchecked")
+   	public int RouteDetailDelete(RouteDetailVO vo) throws Exception {
+    	return (int) update("map.RouteDetailDelete", vo);
     }
 }
