@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.emapMin.WeatherVO;
 import com.emapMin.service.mapService;
+import com.emapMin.RouteDetailVO;
+import com.emapMin.RouteVO;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
@@ -73,5 +75,40 @@ public class mapServiceImpl extends EgovAbstractServiceImpl implements mapServic
 	@Override
 	public List<WeatherVO> getWeatherPopup(WeatherVO vo) throws Exception {
 		return mapDAO.getWeatherPopup(vo);
+	}
+	
+	@Override
+	public List<RouteVO> getRouteList(RouteVO vo) throws Exception {
+		return mapDAO.getRouteList(vo);
+	}
+
+	@Override
+	public void RouteInsert(RouteVO vo) throws Exception {
+		mapDAO.RouteInsert(vo);
+	}
+
+	@Override
+	public int RouteUpdate(RouteVO vo) throws Exception {
+		return mapDAO.RouteUpdate(vo);
+	}
+
+	@Override
+	public int RouteDelete(RouteDetailVO vo) throws Exception {
+		return mapDAO.RouteDelete(vo);
+	}
+	
+	@Override
+	public List<RouteDetailVO> getRouteDetailList(RouteVO vo) throws Exception {
+		return mapDAO.getRouteDetailList(vo);
+	}
+
+	@Override
+	public void RouteDetailInsert(RouteDetailVO vo) throws Exception {
+		mapDAO.RouteDetailInsert(vo);
+	}
+
+	@Override
+	public int RouteDetailDelete(RouteDetailVO vo) throws Exception {
+		return mapDAO.RouteDetailDelete(vo);
 	}
 }
