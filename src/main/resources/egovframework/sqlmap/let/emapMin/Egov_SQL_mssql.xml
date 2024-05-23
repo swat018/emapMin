@@ -2,8 +2,11 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="emapMin">
-	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="WeatherVO" type="com.emapMin.WeatherVO"/>
+	<typeAlias alias="egovMap"
+		type="egovframework.rte.psl.dataaccess.util.EgovMap" />
+	<typeAlias alias="WeatherVO" type="com.emapMin.WeatherVO" />
+	<typeAlias  alias="RouteVO" type="com.emapMin.RouteVO"/>
+	<typeAlias  alias="RouteDetailVO" type="com.emapMin.RouteDetailVO"/>
 
 	<select id="map.getWeather" resultClass="WeatherVO">
 		<![CDATA[
@@ -17,8 +20,66 @@
 			AND lon::numeric % $degree$ = 0
 		]]>
 	</select>
-				<!-- FROM $tableName$ -->
-			<!-- AND lon >= $lon1$
-			AND lon <= $lon2$ -->
+	<!-- FROM $tableName$ -->
+	<!-- AND lon >= $lon1$ AND lon <= $lon2$ -->	
+	
+	<select id="map.getPlanList" resultClass="RouteVO">
+		<![CDATA[ 
+			SELECT * FROM "TB_RouteMaster"
+		]]>
+	</select>
+	
+	<select id="map.getRouteList" resultClass="RouteVO">
+		<![CDATA[ 
+			SELECT * FROM "TB_RouteMaster"
+			 WHERE 1=1
+		]]>
+			 <isNotEqual prepend="AND" property="routeid" compareValue="0"> 
+			 	routeid = #routeid#
+			 </isNotEqual>
+	</select>
+	
+	<insert id="map.RouteInsert" parameterClass="RouteVO">
+    	<![CDATA[ 
+			INSERT INTO "TB_RouteMaster"(routename, makename, makedate, modifydate, usefg)
+			VALUES(#routename#,#makename#,now(),now(),'Y')
+		]]>
+  	</insert>
+	
+	<update id="map.RouteUpdate" parameterClass="RouteVO">
+    	<![CDATA[ 
+			UPDATE "TB_RouteMaster"
+			   SET routename = #routename#, makename = #makename#, modifydate = now()
+			 WHERE routeid = #routeid#
+		]]>
+  	</update>
+	
+	<delete id="map.RouteDelete" parameterClass="RouteDetailVO">
+    	<![CDATA[ 
+			DELETE FROM "TB_RouteMaster"
+			 WHERE routeid = #routeid#
+		]]>
+  	</delete>
+	
+	<select id="map.getRouteDetailList" resultClass="RouteDetailVO">
+		<![CDATA[ 
+			SELECT * FROM "TB_RouteDetail"
+			 WHERE "ROUTEID" = #routeid#
+		]]>
+	</select>
+	
+	<insert id="map.RouteDetailInsert" parameterClass="RouteDetailVO">
+    	<![CDATA[ 
+			INSERT INTO "TB_RouteDetail"("ROUTEID", "routeseq", "lon", "lat")
+			VALUES(#routeid#,#routeseq#,#lon#,#lat#)
+		]]>
+  	</insert>
+	
+	<delete id="map.RouteDetailDelete" parameterClass="RouteDetailVO">
+    	<![CDATA[ 
+			DELETE FROM "TB_RouteDetail"
+			 WHERE "ROUTEID" = #routeid#
+		]]>
+  	</delete>
 
 </sqlMap>
