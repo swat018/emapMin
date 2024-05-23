@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.emapMin.WeatherVO;
+import com.emapMin.RouteDetailVO;
+import com.emapMin.RouteVO;
 
 public interface mapService {
 	
@@ -14,4 +16,12 @@ public interface mapService {
 	public List<WeatherVO> getWeatherLast2Test(WeatherVO vo) throws Exception;
 	public List<WeatherVO> getWeather(WeatherVO vo) throws Exception;
 	public List<WeatherVO> getWeatherPopup(WeatherVO vo) throws Exception;
+	
+	public List<RouteVO> getRouteList(RouteVO vo) throws Exception;	
+	public void RouteInsert(RouteVO vo) throws Exception;	
+	public int RouteUpdate(RouteVO vo) throws Exception;
+	public int RouteDelete(RouteDetailVO vo) throws Exception;	
+	public List<RouteDetailVO> getRouteDetailList(RouteVO vo) throws Exception;
+	public void RouteDetailInsert(RouteDetailVO vo) throws Exception;	
+	public int RouteDetailDelete(RouteDetailVO vo) throws Exception;
 }
