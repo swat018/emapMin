@@ -222,7 +222,7 @@ public class WebController {
 		vo.setLon4(lon4);
 
 		List<WeatherVO> slist = mapService.getWeather(vo);
-
+		
 	    // 추가적인 정렬을 수행
 	    slist.sort(Comparator.comparing(WeatherVO::getLat)
 	            .thenComparing(WeatherVO::getLon));
@@ -252,8 +252,8 @@ public class WebController {
 			            updatedWeatherVO.setV_current(weatherVO.getV_current());
 			            updatedWeatherVO.setUgrd10m(weatherVO.getUgrd10m());
 			            updatedWeatherVO.setVgrd10m(weatherVO.getVgrd10m());
-			            updatedWeatherVO.setFsdir(weatherVO.getFsdir());
-			            updatedWeatherVO.setFshgt(weatherVO.getFshgt());
+			            //updatedWeatherVO.setFsdir(weatherVO.getFsdir());
+			            //updatedWeatherVO.setFshgt(weatherVO.getFshgt());
 			            updatedWeatherVO.setFwaveu(weatherVO.getFwaveu());
 			            updatedWeatherVO.setFwavev(weatherVO.getFwavev());
 			            // 새로운 객체를 리스트에 추가
@@ -271,8 +271,8 @@ public class WebController {
 			            updatedWeatherVO.setV_current(weatherVO.getV_current());
 			            updatedWeatherVO.setUgrd10m(weatherVO.getUgrd10m());
 			            updatedWeatherVO.setVgrd10m(weatherVO.getVgrd10m());
-			            updatedWeatherVO.setFsdir(weatherVO.getFsdir());
-			            updatedWeatherVO.setFshgt(weatherVO.getFshgt());
+			            //updatedWeatherVO.setFsdir(weatherVO.getFsdir());
+			            //updatedWeatherVO.setFshgt(weatherVO.getFshgt());
 			            updatedWeatherVO.setFwaveu(weatherVO.getFwaveu());
 			            updatedWeatherVO.setFwavev(weatherVO.getFwavev());
 			            // 새로운 객체를 리스트에 추가
@@ -337,8 +337,8 @@ public class WebController {
 			            updatedWeatherVO.setV_current(weatherVO.getV_current());
 			            updatedWeatherVO.setUgrd10m(weatherVO.getUgrd10m());
 			            updatedWeatherVO.setVgrd10m(weatherVO.getVgrd10m());
-			            updatedWeatherVO.setFsdir(weatherVO.getFsdir());
-			            updatedWeatherVO.setFshgt(weatherVO.getFshgt());
+			            //updatedWeatherVO.setFsdir(weatherVO.getFsdir());
+			            //updatedWeatherVO.setFshgt(weatherVO.getFshgt());
 			            updatedWeatherVO.setFwaveu(weatherVO.getFwaveu());
 			            updatedWeatherVO.setFwavev(weatherVO.getFwavev());
 			            // 새로운 객체를 리스트에 추가
@@ -377,6 +377,7 @@ public class WebController {
 				//}
 			}
 		//}
+		slist.remove(0);
 		    
 		if(slist.size() > 0) {
 			json.Json(res, slist);

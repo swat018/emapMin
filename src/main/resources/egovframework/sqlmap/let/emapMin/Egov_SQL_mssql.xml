@@ -7,7 +7,7 @@
 
 	<select id="map.getWeather" resultClass="WeatherVO">
 		<![CDATA[
-			SELECT time, lat, lon, air_temp, water_temp, u_current, v_current, ugrd10m, vgrd10m, fsdir, fshgt, fwaveu, fwavev
+			SELECT lat, lon, air_temp, water_temp, u_current, v_current, ugrd10m, vgrd10m, fwaveu, fwavev
 			FROM $tableName$
 			WHERE EXTRACT(hour from time) = $time$
 			AND lat >= $lat1$
@@ -17,6 +17,7 @@
 			AND lon::numeric % $degree$ = 0
 		]]>
 	</select>
+			<!-- SELECT time, lat, lon, air_temp, water_temp, u_current, v_current, ugrd10m, vgrd10m, fsdir, fshgt, fwaveu, fwavev -->
 				<!-- FROM $tableName$ -->
 			<!-- AND lon >= $lon1$
 			AND lon <= $lon2$ -->
