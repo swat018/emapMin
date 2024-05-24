@@ -46,6 +46,30 @@
         <servlet-name>action</servlet-name>
     <url-pattern>/api/weather/all</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+    <url-pattern>/api/route/all</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+    <url-pattern>/api/route/master</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+    <url-pattern>/api/route/mastersave</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+    <url-pattern>/api/route/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+    <url-pattern>/api/route/detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+    <url-pattern>/api/route/detailsave</url-pattern>
+    </servlet-mapping>
     <!-- <servlet>
         <servlet-name>restApi</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
