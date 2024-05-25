@@ -7,10 +7,11 @@ var day = ("0" + date.getDate()).slice(-2);
 
 let zoom;
 
-let lev; // 스케일 공유
+//let lev; // 스케일 공유
 let dateInput;
-
-let ocean;
+const geoserverWmsUrl = "http://navioncorp.asuscomm.com:8089/geoserver/wms";
+const urlBefore = 'http://navioncorp.asuscomm.com:8080/TileMap/';
+/*let ocean;
 let worldcountries;
 
 let Day_Base;
@@ -21,10 +22,9 @@ let Dusk_Standard;
 let Dusk_Full;
 let Night_Base;
 let Night_Standard;
-let Night_Full;
-let Day4_Base1;
+let Night_Full;*/
 
-let layerMode = 1; // Base, Standard, Detail
+/*let layerMode = 1; // Base, Standard, Detail
 let brightMode = 1; // 주간
 let layerWind1; // 풍향/풍속 레이어
 let layerFlow1; // 유향/유속 레이어
@@ -37,23 +37,9 @@ let addLayerTempair;
 let addLayerTempwater;
 
 let layerTempair; // 기온
-let layerTempwater; // 수온
+let layerTempwater; // 수온*/
 
-/*let weatherTime = new Date();
-weatherTime = weatherTime.getHours();
-weatherTime = (parseInt(weatherTime / 3) * 3) + "시";*/
-
-
-let weatherTime = new Date();
-/*let weatherTimeY = weatherTime.getFullYear();
-let weatherTimeM = weatherTime.getMonth() + 1;
-let weatherTimeD = weatherTime.getDate();
-weatherTimeM = weatherTimeM < 10 ? '0' + weatherTimeM : weatherTimeM;
-weatherTimeD = weatherTimeD < 10 ? '0' + weatherTimeD : weatherTimeD;
-weatherTime = weatherTime.getHours();
-weatherTime = (parseInt(weatherTime / 3) * 3) + "시";
-weatherTime = weatherTime < 10 ? '0' + weatherTime : weatherTime;
-weatherTime = weatherTimeY + '-' + weatherTimeM + '-' + weatherTimeD + ' ' + weatherTime;*/
+//let weatherTime = new Date();
 
 //선박 표기 기본 설정 (색상, 글자 크기)
 var shipStyle={
@@ -146,27 +132,12 @@ map.on('moveend', function() {
 
 
 	// 해도 레이어
-	wmsInit();
+	//wmsInit();
 	map.removeLayer(googlemap); //배경맵 삭제
-    vectorInit(); //베이스 vector레이어\
+    //vectorInit(); //베이스 vector레이어\
     GeojsonReadFeatures(); //geojson wfs 레이어로 변환. 주석처리
     shipSelectEvent(); //선박 선택 이벤트
 }
-
-/*function updateTime(setTime) { // 시간 변경
-    let newWeatherTime = new Date(weatherTime);
-    newWeatherTime.setHours(newWeatherTime.getHours() + setTime);
-    let newWeatherTimeY = newWeatherTime.getFullYear();
-    let newWeatherTimeM = newWeatherTime.getMonth() + 1;
-    let newWeatherTimeD = newWeatherTime.getDate();
-    newWeatherTimeM = newWeatherTimeM < 10 ? '0' + newWeatherTimeM : newWeatherTimeM;
-    newWeatherTimeD = newWeatherTimeD < 10 ? '0' + newWeatherTimeD : newWeatherTimeD;
-    newWeatherTime = newWeatherTime.getHours();
-    newWeatherTime = (parseInt(newWeatherTime / 3) * 3) + "시";
-    newWeatherTime = newWeatherTime < 10 ? '0' + newWeatherTime : newWeatherTime;
-    newWeatherTime = newWeatherTimeY + '-' + newWeatherTimeM + '-' + newWeatherTimeD + ' ' + newWeatherTime;
-    weatherTime = newWeatherTime;
-}*/
 
 // 위도/경도를 도분초 단위로 변환
 function convertToDMS(data, type) {

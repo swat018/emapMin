@@ -34,8 +34,6 @@ public class WeatherVO implements Serializable {
 	private float lon2;
 	private float lon3;
 	private float lon4;
-	private float lon5;
-	private float lon6;
 	private float degree;
     private String air_temp = "";
     private String water_temp = "";
@@ -43,8 +41,8 @@ public class WeatherVO implements Serializable {
     private String v_current = "";
     private String ugrd10m = "";
     private String vgrd10m = "";
-    private String fsdir = "";
-    private String fshgt = "";
+    //private String fsdir = "";
+    //private String fshgt = "";
     private String fwaveu = "";
     private String fwavev = "";
     
@@ -121,18 +119,6 @@ public class WeatherVO implements Serializable {
 	public void setLon4(float lon4) {
 		this.lon4 = lon4;
 	}
-	public float getLon5() {
-		return lon5;
-	}
-	public void setLon5(float lon5) {
-		this.lon5 = lon5;
-	}
-	public float getLon6() {
-		return lon6;
-	}
-	public void setLon6(float lon6) {
-		this.lon6 = lon6;
-	}
 	public float getDegree() {
 		return degree;
 	}
@@ -175,7 +161,7 @@ public class WeatherVO implements Serializable {
 	public void setVgrd10m(String vgrd10m) {
 		this.vgrd10m = vgrd10m;
 	}
-	public String getFsdir() {
+	/*public String getFsdir() {
 		return fsdir;
 	}
 	public void setFsdir(String fsdir) {
@@ -186,7 +172,7 @@ public class WeatherVO implements Serializable {
 	}
 	public void setFshgt(String fshgt) {
 		this.fshgt = fshgt;
-	}
+	}*/
 	public String getFwaveu() {
 		return fwaveu;
 	}

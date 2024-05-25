@@ -1,8 +1,8 @@
-var geoserverWmsUrl = "http://navioncorp.asuscomm.com:8089/geoserver/wms";
+//var geoserverWmsUrl = "http://navioncorp.asuscomm.com:8089/geoserver/wms";
 function wmsInit(){
 
-	const urlBefore = 'http://navioncorp.asuscomm.com:8080/TileMap/';
-	const urlAfter = '/{z}/{x}/{-y}.png';.0
+//	const urlBefore = 'http://navioncorp.asuscomm.com:8080/TileMap/';
+/*	const urlAfter = '/{z}/{x}/{-y}.png';.0
 
     Day_Base = new ol.layer.Tile({
         source: new ol.source.XYZ({
@@ -89,7 +89,7 @@ function wmsInit(){
                 'CRS' : 'EPSG:3857',
             },            
         })
-   });
+   });*/
 
 	// layerMode에 따라 라디오 버튼 체크
 	/*if (layerMode === 1) {
@@ -100,7 +100,7 @@ function wmsInit(){
 	    document.querySelector('input[name="mapSetting"][value="3"]').checked = true;
 	}*/
 
-	var modeSelect = document.getElementById("modeSelect");
+	/*var modeSelect = document.getElementById("modeSelect");
 	modeSelect.addEventListener("change", function() {
     // 라디오 버튼 선택 시
 	//radioSetting.addEventListener("change", function(event) {
@@ -163,8 +163,9 @@ function wmsInit(){
 				Night_Full.setZIndex(-1);
 			}
 		}
-    });
+    });*/
 
+	/*
 	// 밝기 선택시 동작
 	var brightSelect = document.getElementById("brightSelect");
 
@@ -233,7 +234,7 @@ function wmsInit(){
 			worldcountries.setZIndex(1);
 			make_sld("worldcountries", "Polygon1_2", "1E1E1E", null);
 		}
-	});
+	});*/
 	
 	/*let blackthemeCheckbox = document.getElementById('checkBlacktheme'); // 블랙테마
 
