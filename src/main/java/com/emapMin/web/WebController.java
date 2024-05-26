@@ -57,11 +57,11 @@ import egovframework.rte.fdl.property.EgovPropertyService;
  * @Description : EgovSample Controller Class
  * @Modification Information
  * @
- * @  ìˆ˜ì •ì¼      ìˆ˜ì •ìž              ìˆ˜ì •ë‚´ìš©
+ * @  수정일      수정자              수정내용
  * @ ---------   ---------   -------------------------------
- * @ 2009.03.16           ìµœì´ˆìƒì„±
+ * @ 2009.03.16           최초생성
  *
- * @author ê°œë°œí”„ë ˆìž„ì›í¬ ì‹¤í–‰í™˜ê²½ ê°œë°œíŒ€
+ * @author 개발프레임웍크 실행환경 개발팀
  * @since 2009. 03.16
  * @version 1.0
  * @see
@@ -409,10 +409,9 @@ public class WebController {
   		vo.setRouteid(Integer.parseInt(req.getParameter("id")));
   		List<RouteVO> slist = mapService.getRouteList(vo);		
   		
-  		if(slist.size() > 0) {
+  		if(slist.size() > 0) {	
   			json.Json(res, slist);
   		}
-//  		return slist;
   	}
     
     //항로계획 마스터 저장
@@ -425,17 +424,22 @@ public class WebController {
   		String name = req.getParameter("rt_mkname");
 
   		RouteVO vo = new RouteVO();
-  		List<String> list = null;
-  		if(id.isEmpty()) {
-  			vo.setRoutename(r_name);
-  			vo.setMakename(name);
-  			mapService.RouteInsert(vo);
-  		} else {
-  			vo.setRouteid(Integer.parseInt(id));
-  			vo.setRoutename(r_name);
-  			vo.setMakename(name);
-  			mapService.RouteUpdate(vo);
-  		}	
+  		List<String> list = new ArrayList<>();
+  		try {
+	  		if(id.equals("0")) {
+	  			vo.setRoutename(r_name);
+	  			vo.setMakename(name);
+	  			mapService.RouteInsert(vo);
+	  		} else {
+	  			vo.setRouteid(Integer.parseInt(id));
+	  			vo.setRoutename(r_name);
+	  			vo.setMakename(name);
+	  			mapService.RouteUpdate(vo);
+	  		}
+	  		list.add("S");
+  		}catch (Exception e) {
+  			list.add("E");
+		}
   		json.Json(res, list);
   	}
     
@@ -444,13 +448,17 @@ public class WebController {
     @RequestMapping("/api/route/delete")
 	public void RouteDelete(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		System.out.println("/api/route/delete : start!");
-		List<String> list = null;
-
-		String id = req.getParameter("id");
-		RouteDetailVO vo = new RouteDetailVO();
-		vo.setRouteid(Integer.parseInt(id));
-		mapService.RouteDetailDelete(vo);
-		mapService.RouteDelete(vo);		
+  		List<String> list = new ArrayList<>();
+  		try {
+			String id = req.getParameter("id");
+			RouteDetailVO vo = new RouteDetailVO();
+			vo.setRouteid(Integer.parseInt(id));
+			mapService.RouteDetailDelete(vo);
+			mapService.RouteDelete(vo);		
+	  		list.add("S");
+		}catch (Exception e) {
+			list.add("E");
+		}
 		json.Json(res, list);
 	}
     
@@ -473,24 +481,29 @@ public class WebController {
     @RequestMapping("/api/route/detailsave")
   	public void RouteDetailSave(HttpServletRequest req, HttpServletResponse res) throws Exception {
   		System.out.println("/api/route/detailsave : start!");
-  		List<String> list = null;
-  		int cnt = Integer.parseInt(req.getParameter("cnt"));
-  		String id = req.getParameter("id");
-  		String[] arr_lon = req.getParameter("arr_lon").split(",");
-  		String[] arr_lat = req.getParameter("arr_lat").split(",");
-  		
-  		RouteDetailVO vo = new RouteDetailVO();
-  		vo.setRouteid(Integer.parseInt(id));
-  		mapService.RouteDetailDelete(vo);
-  		
-  		for(int i=0; i<cnt; i++) {
-  			vo = new RouteDetailVO();
-  			vo.setRouteid(Integer.parseInt(id));
-  			vo.setRouteseq((i+1));
-  			vo.setLon(arr_lon[i]);
-  			vo.setLat(arr_lat[i]);
-  			mapService.RouteDetailInsert(vo);
-  		}
-  		json.Json(res, list);
+  		List<String> list = new ArrayList<>();
+  		try {
+	  		int cnt = Integer.parseInt(req.getParameter("cnt"));
+	  		String id = req.getParameter("id");
+	  		String[] arr_lon = req.getParameter("arr_lon").split(",");
+	  		String[] arr_lat = req.getParameter("arr_lat").split(",");
+	  		
+	  		RouteDetailVO vo = new RouteDetailVO();
+	  		vo.setRouteid(Integer.parseInt(id));
+	  		mapService.RouteDetailDelete(vo);
+	  		
+	  		for(int i=0; i<cnt; i++) {
+	  			vo = new RouteDetailVO();
+	  			vo.setRouteid(Integer.parseInt(id));
+	  			vo.setRouteseq((i+1));
+	  			vo.setLon(arr_lon[i]);
+	  			vo.setLat(arr_lat[i]);
+	  			mapService.RouteDetailInsert(vo);
+	  		}
+	  		list.add("S");
+		}catch (Exception e) {
+			list.add("E");
+		}
+		json.Json(res, list);
   	}
 }
