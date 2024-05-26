@@ -24,6 +24,7 @@
 	<select id="map.getPlanList" resultClass="RouteVO">
 		<![CDATA[ 
 			SELECT * FROM "TB_RouteMaster"
+			 ORDER BY routeid
 		]]>
 	</select>
 	
@@ -35,6 +36,9 @@
 			 <isNotEqual prepend="AND" property="routeid" compareValue="0"> 
 			 	routeid = #routeid#
 			 </isNotEqual>
+		<![CDATA[ 
+			 ORDER BY routeid
+		]]>
 	</select>
 	
 	<insert id="map.RouteInsert" parameterClass="RouteVO">
@@ -63,6 +67,7 @@
 		<![CDATA[ 
 			SELECT * FROM "TB_RouteDetail"
 			 WHERE "ROUTEID" = #routeid#
+			 ORDER BY "ROUTEID"
 		]]>
 	</select>
 	
