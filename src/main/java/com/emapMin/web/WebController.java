@@ -403,16 +403,16 @@ public class WebController {
     //항로계획 마스터 조회
   	//@RequestMapping("getRouteList.do")
     @RequestMapping("/api/route/master")
-  	public List<RouteVO> getRouteList(HttpServletRequest req, HttpServletResponse res) throws Exception {
+  	public void getRouteList(HttpServletRequest req, HttpServletResponse res) throws Exception {
   		System.out.println("/api/route/master : start!");
   		RouteVO vo = new RouteVO();
   		vo.setRouteid(Integer.parseInt(req.getParameter("id")));
   		List<RouteVO> slist = mapService.getRouteList(vo);		
   		
-  		/*if(slist.size() > 0) {	
+  		if(slist.size() > 0) {
   			json.Json(res, slist);
-  		}*/
-  		return slist;
+  		}
+//  		return slist;
   	}
     
     //항로계획 마스터 저장
