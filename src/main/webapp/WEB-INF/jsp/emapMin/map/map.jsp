@@ -43,7 +43,7 @@
 <script type="text/javascript" src="<c:url value="/js/map/mapOptions.js?version=${nowDate}"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/map/style.js?version=${nowDate}"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/map/map.js?version=${nowDate}"/>"></script>
-<script type="text/javascript" src="<c:url value="/js/map/layer.js?version=${nowDate}"/>"></script>
+<!-- <script type="text/javascript" src="<c:url value="/js/map/layer.js?version=${nowDate}"/>"></script> -->
 <script type="text/javascript" src="<c:url value="/js/map/wfsLayer.js?version=${nowDate}"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/map/interaction.js?version=${nowDate}"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/map/measure.js?version=${nowDate}"/>"></script>
@@ -91,11 +91,11 @@ window.onload = function(){
 								&nbsp;<input type="checkbox" id="checkTempwater" class="customCheckbox">
 										<label for="checkTempwater" class="checkboxLabelCustom">&nbsp;수온</label> -->
 								<input type="radio" id="checkWind" name="weatherOption" class="customRadio"> 풍향/풍속
-							    &nbsp;<input type="radio" id="checkFlow" name="weatherOption" class="customRadio"> 유향/유속
-							    &nbsp;<input type="radio" id="checkWave" name="weatherOption" class="customRadio"> 파향/파주기
-							    &nbsp;<input type="radio" id="checkTempair" name="weatherOption" class="customRadio"> 기온
-							    &nbsp;<input type="radio" id="checkTempwater" name="weatherOption" class="customRadio"> 수온
-							    <script>
+								&nbsp;<input type="radio" id="checkFlow" name="weatherOption" class="customRadio"> 유향/유속
+								&nbsp;<input type="radio" id="checkWave" name="weatherOption" class="customRadio"> 파향/파주기
+								&nbsp;<input type="radio" id="checkTempair" name="weatherOption" class="customRadio"> 기온
+								&nbsp;<input type="radio" id="checkTempwater" name="weatherOption" class="customRadio"> 수온
+							    <!-- <script>
 							    	let previousChecked = null;
 							    	
 								    // 선택된 라디오 버튼 클릭시 해제
@@ -132,7 +132,7 @@ window.onload = function(){
 								            	previousChecked = this;
 								        });
 								    });
-								</script>
+								</script> -->
 							</td>
 							<td width="10px"></td>
 							<td>

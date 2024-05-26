@@ -57,11 +57,11 @@ import egovframework.rte.fdl.property.EgovPropertyService;
  * @Description : EgovSample Controller Class
  * @Modification Information
  * @
- * @  수정일      수정자              수정내용
+ * @  ìˆ˜ì •ì¼      ìˆ˜ì •ìž              ìˆ˜ì •ë‚´ìš©
  * @ ---------   ---------   -------------------------------
- * @ 2009.03.16           최초생성
+ * @ 2009.03.16           ìµœì´ˆìƒì„±
  *
- * @author 개발프레임웍크 실행환경 개발팀
+ * @author ê°œë°œí”„ë ˆìž„ì›í¬ ì‹¤í–‰í™˜ê²½ ê°œë°œíŒ€
  * @since 2009. 03.16
  * @version 1.0
  * @see
@@ -225,7 +225,7 @@ public class WebController {
 		vo.setLon4(lon4);
 
 		List<WeatherVO> slist = mapService.getWeather(vo);
-
+		
 	    // 추가적인 정렬을 수행
 	    slist.sort(Comparator.comparing(WeatherVO::getLat)
 	            .thenComparing(WeatherVO::getLon));
@@ -255,8 +255,8 @@ public class WebController {
 			            updatedWeatherVO.setV_current(weatherVO.getV_current());
 			            updatedWeatherVO.setUgrd10m(weatherVO.getUgrd10m());
 			            updatedWeatherVO.setVgrd10m(weatherVO.getVgrd10m());
-			            updatedWeatherVO.setFsdir(weatherVO.getFsdir());
-			            updatedWeatherVO.setFshgt(weatherVO.getFshgt());
+			            //updatedWeatherVO.setFsdir(weatherVO.getFsdir());
+			            //updatedWeatherVO.setFshgt(weatherVO.getFshgt());
 			            updatedWeatherVO.setFwaveu(weatherVO.getFwaveu());
 			            updatedWeatherVO.setFwavev(weatherVO.getFwavev());
 			            // 새로운 객체를 리스트에 추가
@@ -274,8 +274,8 @@ public class WebController {
 			            updatedWeatherVO.setV_current(weatherVO.getV_current());
 			            updatedWeatherVO.setUgrd10m(weatherVO.getUgrd10m());
 			            updatedWeatherVO.setVgrd10m(weatherVO.getVgrd10m());
-			            updatedWeatherVO.setFsdir(weatherVO.getFsdir());
-			            updatedWeatherVO.setFshgt(weatherVO.getFshgt());
+			            //updatedWeatherVO.setFsdir(weatherVO.getFsdir());
+			            //updatedWeatherVO.setFshgt(weatherVO.getFshgt());
 			            updatedWeatherVO.setFwaveu(weatherVO.getFwaveu());
 			            updatedWeatherVO.setFwavev(weatherVO.getFwavev());
 			            // 새로운 객체를 리스트에 추가
@@ -340,8 +340,8 @@ public class WebController {
 			            updatedWeatherVO.setV_current(weatherVO.getV_current());
 			            updatedWeatherVO.setUgrd10m(weatherVO.getUgrd10m());
 			            updatedWeatherVO.setVgrd10m(weatherVO.getVgrd10m());
-			            updatedWeatherVO.setFsdir(weatherVO.getFsdir());
-			            updatedWeatherVO.setFshgt(weatherVO.getFshgt());
+			            //updatedWeatherVO.setFsdir(weatherVO.getFsdir());
+			            //updatedWeatherVO.setFshgt(weatherVO.getFshgt());
 			            updatedWeatherVO.setFwaveu(weatherVO.getFwaveu());
 			            updatedWeatherVO.setFwavev(weatherVO.getFwavev());
 			            // 새로운 객체를 리스트에 추가
@@ -380,6 +380,7 @@ public class WebController {
 				//}
 			}
 		//}
+		slist.remove(0);
 		    
 		if(slist.size() > 0) {
 			json.Json(res, slist);
@@ -402,16 +403,16 @@ public class WebController {
     //항로계획 마스터 조회
   	//@RequestMapping("getRouteList.do")
     @RequestMapping("/api/route/master")
-  	public List<RouteVO> getRouteList(HttpServletRequest req, HttpServletResponse res) throws Exception {
+  	public void getRouteList(HttpServletRequest req, HttpServletResponse res) throws Exception {
   		System.out.println("/api/route/master : start!");
   		RouteVO vo = new RouteVO();
   		vo.setRouteid(Integer.parseInt(req.getParameter("id")));
   		List<RouteVO> slist = mapService.getRouteList(vo);		
   		
-  		/*if(slist.size() > 0) {	
+  		if(slist.size() > 0) {
   			json.Json(res, slist);
-  		}*/
-  		return slist;
+  		}
+//  		return slist;
   	}
     
     //항로계획 마스터 저장
