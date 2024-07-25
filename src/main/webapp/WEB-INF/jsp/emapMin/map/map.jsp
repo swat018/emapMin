@@ -137,6 +137,7 @@ window.onload = function(){
 							<td width="10px"></td>
 							<td>
 								<div id="weatherTime"></div>
+
 							</td>
 							<td width="2px"></td>
 							<td>

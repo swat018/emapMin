@@ -6,6 +6,7 @@ var month = ("0" + (1 + date.getMonth())).slice(-2);
 var day = ("0" + date.getDate()).slice(-2);
 
 let zoom;
+let Night_Standard;
 
 //let lev; // 스케일 공유
 let dateInput;
@@ -182,6 +183,7 @@ function layerChange(layerMap, layerMode) {
             map.addLayer(layerGroup);
             layerGroup.setZIndex(-1);
         }
+		
     }
 }
 

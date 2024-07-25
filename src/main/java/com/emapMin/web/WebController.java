@@ -68,7 +68,7 @@ import egovframework.rte.fdl.property.EgovPropertyService;
  *
  *  Copyright (C) by MOPAS All right reserved.
  */
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5050", "http://172.16.181.11:5173", "http://172.16.181.11:5050", "http://172.16.181.11", "http://172.16.181.11:80"})
 @Controller
 public class WebController {	
 
