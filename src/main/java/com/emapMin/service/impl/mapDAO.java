@@ -3,6 +3,8 @@ package com.emapMin.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.emapMin.WeatherVO;
@@ -13,14 +15,14 @@ import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
 
 /**
  * @Class Name : CmmUseDAO.java
- * @Description : 공통코드등 전체 업무에서 공용해서 사용해야 하는 서비스를 정의하기위한 데이터 접근 클래스
+ * @Description : 怨듯넻肄붾뱶�벑 �쟾泥� �뾽臾댁뿉�꽌 怨듭슜�빐�꽌 �궗�슜�빐�빞 �븯�뒗 �꽌鍮꾩뒪瑜� �젙�쓽�븯湲곗쐞�븳 �뜲�씠�꽣 �젒洹� �겢�옒�뒪
  * @Modification Information
  *
- *    수정일       수정자         수정내용
+ *    �닔�젙�씪       �닔�젙�옄         �닔�젙�궡�슜
  *    -------        -------     -------------------
- *    2009. 3. 11.     이삼섭
+ *    2009. 3. 11.     �씠�궪�꽠
  *
- * @author 공통 서비스 개발팀 이삼섭
+ * @author 怨듯넻 �꽌鍮꾩뒪 媛쒕컻�� �씠�궪�꽠
  * @since 2009. 3. 11.
  * @version
  * @see
@@ -28,6 +30,9 @@ import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
  */
 @Repository("mapDAO")
 public class mapDAO extends EgovComAbstractDAO {
+
+    //@Autowired
+    //private SqlSessionTemplate sqlSessionTemplate;
 
     /**
      * test
@@ -62,9 +67,68 @@ public class mapDAO extends EgovComAbstractDAO {
     }
 
     @SuppressWarnings("unchecked")
+   	public List<WeatherVO> getWeatherWind(WeatherVO vo) throws Exception {
+    	return (List<WeatherVO>) list("map.getWeatherWind", vo);
+    }
+    @SuppressWarnings("unchecked")
    	public List<WeatherVO> getWeather(WeatherVO vo) throws Exception {
     	return (List<WeatherVO>) list("map.getWeather", vo);
     }
+
+    @SuppressWarnings("unchecked")
+   	public void getWeatherTempair1() throws Exception {
+    	insert("map.getWeatherTempair1");
+    }
+    @SuppressWarnings("unchecked")
+   	public void getWeatherTempair2(WeatherVO vo) throws Exception {
+    	insert("map.getWeatherTempair2", vo);
+    }
+    @SuppressWarnings("unchecked")
+   	public void getWeatherTempair3(WeatherVO vo) throws Exception {
+    	insert("map.getWeatherTempair3", vo);
+    }
+    @SuppressWarnings("unchecked")
+   	public void getWeatherTempair4(WeatherVO vo) throws Exception {
+    	insert("map.getWeatherTempair4", vo);
+    }
+    @SuppressWarnings("unchecked")
+   	public void getWeatherTempair5(WeatherVO vo) throws Exception {
+    	insert("map.getWeatherTempair5", vo);
+    }
+    @SuppressWarnings("unchecked")
+   	public List<WeatherVO> getWeatherTempair6(WeatherVO vo) throws Exception {
+    	return (List<WeatherVO>) list("map.getWeatherTempair6", vo);
+    }
+
+    @SuppressWarnings("unchecked")
+   	public void getWeatherTempwater1() throws Exception {
+    	insert("map.getWeatherTempwater1");
+    }
+    @SuppressWarnings("unchecked")
+   	public void getWeatherTempwater2(WeatherVO vo) throws Exception {
+    	insert("map.getWeatherTempwater2", vo);
+    }
+    @SuppressWarnings("unchecked")
+   	public void getWeatherTempwater3(WeatherVO vo) throws Exception {
+    	insert("map.getWeatherTempwater3", vo);
+    }
+    @SuppressWarnings("unchecked")
+   	public void getWeatherTempwater4(WeatherVO vo) throws Exception {
+    	insert("map.getWeatherTempwater4", vo);
+    }
+    @SuppressWarnings("unchecked")
+   	public void getWeatherTempwater5(WeatherVO vo) throws Exception {
+    	insert("map.getWeatherTempwater5", vo);
+    }
+    @SuppressWarnings("unchecked")
+   	public List<WeatherVO> getWeatherTempwater6(WeatherVO vo) throws Exception {
+    	return (List<WeatherVO>) list("map.getWeatherTempwater6", vo);
+    }
+
+    /*@SuppressWarnings("unchecked")
+    public List<WeatherVO> selectList(String queryId, Object parameter) {
+        return sqlSessionTemplate.selectList(queryId, parameter);
+    }*/
 
     @SuppressWarnings("unchecked")
    	public List<WeatherVO> getWeatherPopup(WeatherVO vo) throws Exception {

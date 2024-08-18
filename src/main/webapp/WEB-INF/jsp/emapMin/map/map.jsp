@@ -91,13 +91,13 @@ window.onload = function(){
 								&nbsp;<input type="checkbox" id="checkTempwater" class="customCheckbox">
 										<label for="checkTempwater" class="checkboxLabelCustom">&nbsp;수온</label> -->
 								<input type="radio" id="checkWind" name="weatherOption" class="customRadio"> 풍향/풍속
-								&nbsp;<input type="radio" id="checkFlow" name="weatherOption" class="customRadio"> 유향/유속
-								&nbsp;<input type="radio" id="checkWave" name="weatherOption" class="customRadio"> 파향/파주기
-								&nbsp;<input type="radio" id="checkTempair" name="weatherOption" class="customRadio"> 기온
-								&nbsp;<input type="radio" id="checkTempwater" name="weatherOption" class="customRadio"> 수온
+							    &nbsp;<input type="radio" id="checkFlow" name="weatherOption" class="customRadio"> 유향/유속
+							    &nbsp;<input type="radio" id="checkWave" name="weatherOption" class="customRadio"> 파향/파주기
+							    &nbsp;<input type="radio" id="checkTempair" name="weatherOption" class="customRadio"> 기온
+							    &nbsp;<input type="radio" id="checkTempwater" name="weatherOption" class="customRadio"> 수온
 							    <!-- <script>
 							    	let previousChecked = null;
-							    	
+
 								    // 선택된 라디오 버튼 클릭시 해제
 								    document.querySelectorAll('.customRadio').forEach(function(radio) {
 								        radio.addEventListener('click', function() {

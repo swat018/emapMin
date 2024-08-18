@@ -183,7 +183,6 @@ function layerChange(layerMap, layerMode) {
             map.addLayer(layerGroup);
             layerGroup.setZIndex(-1);
         }
-		
     }
 }
 

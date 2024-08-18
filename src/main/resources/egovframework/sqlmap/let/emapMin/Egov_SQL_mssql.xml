@@ -8,11 +8,33 @@
 	<typeAlias  alias="RouteVO" type="com.emapMin.RouteVO"/>
 	<typeAlias  alias="RouteDetailVO" type="com.emapMin.RouteDetailVO"/>
 
-	<select id="map.getWeather" resultClass="WeatherVO">
+	<!-- <select id="map.getWeather" resultClass="WeatherVO">
 		<![CDATA[
-			SELECT lat, lon, air_temp, water_temp, u_current, v_current, ugrd10m, vgrd10m, fwaveu, fwavev
+SELECT 
+    CAST(lon AS DOUBLE PRECISION) AS lon, 
+    CAST(lat AS DOUBLE PRECISION) AS lat, 
+    air_temp, 
+    water_temp, 
+    u_current, 
+    v_current, 
+    ugrd10m, 
+    vgrd10m, 
+    fwaveu, 
+    fwavev
+FROM 
+    public.tb_20240529 AS re, 
+    "WorldCountries" wc 
+WHERE 
+    ST_Disjoint(ST_SetSRID(ST_POINT(lon, lat), 4326), wc.geom) = false;
+
+
+		]]>
+	</select>-->
+	<select id="map.getWeatherWind" resultClass="WeatherVO">
+		<![CDATA[
+			SELECT lat, lon, u_current, v_current, ugrd10m, vgrd10m, fwaveu, fwavev
 			FROM $tableName$
-			WHERE EXTRACT(hour from time) = $time$
+			WHERE time = TO_TIMESTAMP(SUBSTRING('$tableName$' FROM 4 FOR 8) || ' ' || LPAD(CAST($time$ AS TEXT), 2, '0') || ':00:00', 'YYYYMMDD HH24:MI:SS')
 			AND lat >= $lat1$
 			AND lat <= $lat2$
 			AND ((lon >= $lon1$ AND lon <= $lon2$) OR (lon >= $lon3$ AND lon < $lon4$))
@@ -20,11 +42,337 @@
 			AND lon::numeric % $degree$ = 0
 		]]>
 	</select>
+	<!-- 바다 필터링
+	<select id="map.getWeather" resultClass="WeatherVO">
+		<![CDATA[
+			WITH original_data AS (
+			    SELECT 
+			        lat, lon, u_current, v_current, ugrd10m, vgrd10m, fwaveu, fwavev,
+			        EXISTS (
+			            SELECT 1 
+			            FROM tb_worldtilemapservice t
+            			WHERE ST_Intersects(ST_Buffer(t.geom, 500), ST_SetSRID(ST_MakePoint(lon, lat), 4326))
+			        ) AS is_contained
+			    FROM
+			    	$tableName$
+				WHERE
+					time = TO_TIMESTAMP(SUBSTRING('$tableName$' FROM 4 FOR 8) || ' ' || LPAD(CAST($time$ AS TEXT), 2, '0') || ':00:00', 'YYYYMMDD HH24:MI:SS')
+					AND lat >= $lat1$
+					AND lat <= $lat2$
+					AND ((lon >= $lon1$ AND lon <= $lon2$) OR (lon >= $lon3$ AND lon < $lon4$))
+					AND lat::numeric % $degree$ = 0
+					AND lon::numeric % $degree$ = 0
+			)
+			SELECT 
+			    od.lat, 
+			    od.lon,
+			    CASE 
+			        WHEN od.is_contained THEN od.u_current ELSE 0 END AS u_current,
+			    CASE 
+			        WHEN od.is_contained THEN od.v_current ELSE 0 END AS v_current,
+			    CASE 
+			        WHEN od.is_contained THEN od.ugrd10m ELSE 0 END AS ugrd10m,
+			    CASE 
+			        WHEN od.is_contained THEN od.vgrd10m ELSE 0 END AS vgrd10m,
+			    CASE 
+			        WHEN od.is_contained THEN od.fwaveu ELSE 0 END AS fwaveu,
+			    CASE 
+			        WHEN od.is_contained THEN od.fwavev ELSE 0 END AS fwavev
+			FROM 
+			    original_data od;
+		]]>
+	</select> -->
+	<select id="map.getWeather" resultClass="WeatherVO">
+		<![CDATA[
+			WITH cte AS (
+			    SELECT t.*, COUNT(*) OVER (PARTITION BY t.lat, t.lon) AS cnt
+			    FROM $tableName$ t
+			    WHERE
+			        time = TO_TIMESTAMP(SUBSTRING('$tableName$' FROM 4 FOR 8) || ' ' || LPAD(CAST($time$ AS TEXT), 2, '0') || ':00:00', 'YYYYMMDD HH24:MI:SS')
+			        AND lat >= $lat1$
+			        AND lat <= $lat2$
+			        AND ((lon >= $lon1$ AND lon <= $lon2$) OR (lon >= $lon3$ AND lon < $lon4$))
+			        AND lat::numeric % $degree$ = 0
+			        AND lon::numeric % $degree$ = 0
+			),
+			joined AS (
+			    SELECT cte.*, wt.CONTAINS_YN
+			    FROM cte
+			    JOIN world_tiles wt
+			    ON ST_Intersects(ST_SetSRID(ST_MakePoint(cte.lon, cte.lat), 4326), wt.geom)
+			)
+			SELECT DISTINCT ON (joined.lat, joined.lon)
+			    CASE
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.u_current 
+			    END AS u_current, 
+			    CASE 
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.v_current 
+			    END AS v_current,
+			    CASE
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.ugrd10m 
+			    END AS ugrd10m, 
+			    CASE 
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.vgrd10m 
+			    END AS vgrd10m,
+			    CASE
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.fwaveu 
+			    END AS fwaveu, 
+			    CASE 
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.fwavev 
+			    END AS fwavev,
+			    joined.lat,
+			    joined.lon
+			FROM joined
+			WHERE joined.cnt = 1
+			
+			UNION ALL
+			
+			SELECT
+			    CASE
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.u_current 
+			    END AS u_current, 
+			    CASE 
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.v_current 
+			    END AS v_current,
+			    CASE
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.ugrd10m 
+			    END AS ugrd10m, 
+			    CASE 
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.vgrd10m 
+			    END AS vgrd10m,
+			    CASE
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.fwaveu 
+			    END AS fwaveu, 
+			    CASE 
+			        WHEN joined.CONTAINS_YN = 'Y' THEN 0 
+			        ELSE joined.fwavev 
+			    END AS fwavev,
+			    joined.lat,
+			    joined.lon
+			FROM joined
+			WHERE joined.cnt > 1;
+		]]>
+	</select>
+			<!-- WHERE EXTRACT(hour from time) = $time$ -->
+			
+	<insert id="map.getWeatherTempair1">
+	    <![CDATA[
+	        DELETE FROM "tb_tempair"
+	    ]]>
+	</insert>
+	<insert id="map.getWeatherTempair2" parameterClass="WeatherVO">
+	    <![CDATA[
+        	DROP TABLE IF EXISTS tempair_weather_data;
+	        CREATE TEMP TABLE tempair_weather_data AS
+	        SELECT 
+	            ROW_NUMBER() OVER () AS row_num, 
+	            air_temp, 
+	            "time", 
+	            lon, 
+	            lat
+	        FROM $tableName$
+	        WHERE "time" = TO_TIMESTAMP(SUBSTRING('$tableName$' FROM 4 FOR 8) || ' ' || LPAD(CAST($time$ AS TEXT), 2, '0') || ':00:00', 'YYYYMMDD HH24:MI:SS');
+	        
+        	DROP TABLE IF EXISTS tempair_max_idx;
+	        CREATE TEMP TABLE tempair_max_idx AS
+	        SELECT COALESCE(MAX(idx), 0) AS max_id FROM "tb_tempair";
+	    ]]>
+	</insert>
+	<insert id="map.getWeatherTempair3" parameterClass="WeatherVO">
+	    <![CDATA[
+	        INSERT INTO "tb_tempair"
+	        (idx, temp, "time", geom)
+	        SELECT 
+	            row_num AS idx, 
+	            air_temp, 
+	            "time", 
+	            ST_SetSRID(ST_MakePoint(lon - 360, lat), 4326)
+	        FROM tempair_weather_data;
+	
+	        UPDATE tempair_max_idx
+	        SET max_id = (SELECT COALESCE(MAX(idx), 0) FROM "tb_tempair");
+	    ]]>
+	</insert>
+	<insert id="map.getWeatherTempair4" parameterClass="WeatherVO">
+	    <![CDATA[
+	        INSERT INTO "tb_tempair"
+	        (idx, temp, "time", geom)
+	        SELECT 
+	            row_num + max_id AS idx, 
+	            air_temp, 
+	            "time", 
+	            ST_SetSRID(ST_MakePoint(lon, lat), 4326)
+	        FROM tempair_weather_data, tempair_max_idx;
+	
+	        UPDATE tempair_max_idx
+	        SET max_id = (SELECT COALESCE(MAX(idx), 0) FROM "tb_tempair");
+	    ]]>
+	</insert>
+	<insert id="map.getWeatherTempair5" parameterClass="WeatherVO">
+	    <![CDATA[
+	        INSERT INTO "tb_tempair"
+	        (idx, temp, "time", geom)
+	        SELECT 
+	            row_num + max_id AS idx, 
+	            air_temp, 
+	            "time", 
+	            ST_SetSRID(ST_MakePoint(lon + 360, lat), 4326)
+	        FROM tempair_weather_data, tempair_max_idx;
+	    ]]>
+	</insert>
+	<select id="map.getWeatherTempair6" resultClass="WeatherVO">
+		<![CDATA[
+			SELECT * FROM "tb_tempair" LIMIT 1;
+		]]>
+	</select>
+	<!-- <insert id="map.getWeatherTempair2" parameterClass="WeatherVO">
+	    <![CDATA[
+	        INSERT INTO "tb_tempair"
+	        (idx, temp, "time", geom)
+			SELECT ROW_NUMBER() OVER () AS row_num, air_temp, "time", ST_SetSRID(ST_MakePoint(lon-360, lat), 4326)
+	        FROM $tableName$
+			WHERE time = TO_TIMESTAMP(SUBSTRING('$tableName$' FROM 4 FOR 8) || ' ' || LPAD(CAST($time$ AS TEXT), 2, '0') || ':00:00', 'YYYYMMDD HH24:MI:SS')
+	    ]]>
+	</insert>
+	<insert id="map.getWeatherTempair3" parameterClass="WeatherVO">
+	    <![CDATA[
+	    	WITH max_idx AS (
+    			SELECT COALESCE(MAX(idx), 0) AS max_id FROM "tb_tempair"
+			)
+	        INSERT INTO "tb_tempair"
+	        (idx, temp, "time", geom)
+			SELECT 
+			    row_num + max_id AS idx, 
+			    air_temp, 
+			    "time", 
+			    ST_SetSRID(ST_MakePoint(lon, lat), 4326)
+			FROM (
+			    SELECT 
+			        ROW_NUMBER() OVER () AS row_num, 
+			        air_temp, 
+			        "time", 
+			        lon, 
+			        lat
+			    FROM $tableName$
+				WHERE time = TO_TIMESTAMP(SUBSTRING('$tableName$' FROM 4 FOR 8) || ' ' || LPAD(CAST($time$ AS TEXT), 2, '0') || ':00:00', 'YYYYMMDD HH24:MI:SS')
+			) subquery, max_idx;
+	    ]]>
+	</insert>
+	<insert id="map.getWeatherTempair4" parameterClass="WeatherVO">
+	    <![CDATA[
+	    	WITH max_idx AS (
+    			SELECT COALESCE(MAX(idx), 0) AS max_id FROM "tb_tempair"
+			)
+	        INSERT INTO "tb_tempair"
+	        (idx, temp, "time", geom)
+			SELECT 
+			    row_num + max_id AS idx, 
+			    air_temp, 
+			    "time",
+				ST_SetSRID(ST_MakePoint(lon + 360, lat), 4326)
+			FROM (
+			    SELECT 
+			        ROW_NUMBER() OVER () AS row_num, 
+			        air_temp, 
+			        "time", 
+			        lon, 
+			        lat
+			    FROM $tableName$
+				WHERE time = TO_TIMESTAMP(SUBSTRING('$tableName$' FROM 4 FOR 8) || ' ' || LPAD(CAST($time$ AS TEXT), 2, '0') || ':00:00', 'YYYYMMDD HH24:MI:SS')
+			) subquery, max_idx;
+	    ]]>
+	</insert>
+	<select id="map.getWeatherTempair5" resultClass="WeatherVO">
+		<![CDATA[
+			SELECT * FROM "tb_tempair";
+		]]>
+	</select> -->
+			
+	<insert id="map.getWeatherTempwater1">
+	    <![CDATA[
+	        DELETE FROM "tb_tempwater"
+	    ]]>
+	</insert>
+	<insert id="map.getWeatherTempwater2" parameterClass="WeatherVO">
+	    <![CDATA[
+        	DROP TABLE IF EXISTS tempwater_weather_data;
+	        CREATE TEMP TABLE tempwater_weather_data AS
+	        SELECT 
+	            ROW_NUMBER() OVER () AS row_num, 
+	            water_temp, 
+	            "time", 
+	            lon, 
+	            lat
+	        FROM $tableName$
+	        WHERE "time" = TO_TIMESTAMP(SUBSTRING('$tableName$' FROM 4 FOR 8) || ' ' || LPAD(CAST($time$ AS TEXT), 2, '0') || ':00:00', 'YYYYMMDD HH24:MI:SS');
+	        
+        	DROP TABLE IF EXISTS tempwater_max_idx;
+	        CREATE TEMP TABLE tempwater_max_idx AS
+	        SELECT COALESCE(MAX(idx), 0) AS max_id FROM "tb_tempwater";
+	    ]]>
+	</insert>
+	<insert id="map.getWeatherTempwater3" parameterClass="WeatherVO">
+	    <![CDATA[
+	        INSERT INTO "tb_tempwater"
+	        (idx, temp, "time", geom)
+	        SELECT 
+	            row_num AS idx, 
+	            water_temp, 
+	            "time", 
+	            ST_SetSRID(ST_MakePoint(lon - 360, lat), 4326)
+	        FROM tempwater_weather_data;
+	
+	        UPDATE tempwater_max_idx
+	        SET max_id = (SELECT COALESCE(MAX(idx), 0) FROM "tb_tempwater");
+	    ]]>
+	</insert>
+	<insert id="map.getWeatherTempwater4" parameterClass="WeatherVO">
+	    <![CDATA[
+	        INSERT INTO "tb_tempwater"
+	        (idx, temp, "time", geom)
+	        SELECT 
+	            row_num + max_id AS idx, 
+	            water_temp, 
+	            "time", 
+	            ST_SetSRID(ST_MakePoint(lon, lat), 4326)
+	        FROM tempwater_weather_data, tempwater_max_idx;
+	
+	        UPDATE tempwater_max_idx
+	        SET max_id = (SELECT COALESCE(MAX(idx), 0) FROM "tb_tempwater");
+	    ]]>
+	</insert>
+	<insert id="map.getWeatherTempwater5" parameterClass="WeatherVO">
+	    <![CDATA[
+	        INSERT INTO "tb_tempwater"
+	        (idx, temp, "time", geom)
+	        SELECT 
+	            row_num + max_id AS idx, 
+	            water_temp, 
+	            "time", 
+	            ST_SetSRID(ST_MakePoint(lon + 360, lat), 4326)
+	        FROM tempwater_weather_data, tempwater_max_idx;
+	    ]]>
+	</insert>
+	<select id="map.getWeatherTempwater6" resultClass="WeatherVO">
+		<![CDATA[
+			SELECT * FROM "tb_tempwater" LIMIT 1;
+		]]>
+	</select>
 	
 	<select id="map.getPlanList" resultClass="RouteVO">
 		<![CDATA[ 
 			SELECT * FROM "TB_RouteMaster"
-			 ORDER BY routeid
 		]]>
 	</select>
 	
@@ -36,9 +384,6 @@
 			 <isNotEqual prepend="AND" property="routeid" compareValue="0"> 
 			 	routeid = #routeid#
 			 </isNotEqual>
-		<![CDATA[ 
-			 ORDER BY routeid
-		]]>
 	</select>
 	
 	<insert id="map.RouteInsert" parameterClass="RouteVO">
@@ -67,7 +412,6 @@
 		<![CDATA[ 
 			SELECT * FROM "TB_RouteDetail"
 			 WHERE "ROUTEID" = #routeid#
-			 ORDER BY "ROUTEID"
 		]]>
 	</select>
 	
